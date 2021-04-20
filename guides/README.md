@@ -58,7 +58,7 @@ Strange hack, but it works.
 
 ### Test your SSH Connection : 
 
-- After that, Please proceed to [ssh testing](https://github.gamma.bcg.com/spark-training/spark-c-training/blob/master/day%201/part%201/shell/exercices/00-terminal.md)
+- After that, Please proceed to [ssh testing](https://github.com/mehdi-lamrani/spark-training-v2.0/blob/master/day%201/part%201/shell/exercices/00-terminal.md)
 
 ### Using Jupyter / Zeppelin  (Notebook Exercices)
 

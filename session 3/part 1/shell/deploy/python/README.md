@@ -12,7 +12,7 @@ cd
 - create a project folder /root/deploy
 - cd into to it
 - `nano spark_program.py`
-- copy the python [spark program](https://github.gamma.bcg.com/spark-training/spark-c-training/blob/master/day%203/part%201/shell/deploy/python/spark-program.py) in it 
+- copy the python [spark program](https://github.com/mehdi-lamrani/spark-training-v2.0/blob/master/day%203/part%201/shell/deploy/python/spark-program.py) in it 
 - press `Ctrl X`  then `Enter` to Exit
 - take a look at the code you just copied
 

@@ -30,7 +30,7 @@ hdfs dfs -ls /user/hadoop/movielens
 
 -  In Jupyter :  
 Load and execute the following preparation notebook :  
-[spark-tables-prep.ipynb](https://github.gamma.bcg.com/spark-training/spark-c-training/blob/master/day%203/part%202/exercises/spark-tables-prep.ipynb)  
+[spark-tables-prep.ipynb](https://github.com/mehdi-lamrani/spark-training-v2.0/blob/master/day%203/part%202/exercises/spark-tables-prep.ipynb)  
 
 
 

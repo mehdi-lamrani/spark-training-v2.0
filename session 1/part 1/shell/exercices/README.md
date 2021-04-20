@@ -20,12 +20,12 @@ A thorough explanation on how to properly tune your ressources to avoid that wil
 
 #### PART ONE : Connecting to Terminal
 
-- [Connecting to Terminal](https://github.gamma.bcg.com/spark-training/spark-c-training/blob/master/day%201/part%201/shell/exercices/00-terminal.md)
+- [Connecting to Terminal](https://github.com/mehdi-lamrani/spark-training-v2.0/blob/master/day%201/part%201/shell/exercices/00-terminal.md)
 
 #### PART TWO : Loading Data into HDFS
 
-- [Loading Data](https://github.gamma.bcg.com/spark-training/spark-c-training/blob/master/day%201/part%201/shell/exercices/01.load-data.md)
+- [Loading Data](https://github.com/mehdi-lamrani/spark-training-v2.0/blob/master/day%201/part%201/shell/exercices/01.load-data.md)
 
 #### PART THREE : First steps with pyspark shell
 
-- [Hello Pyspark Shell](https://github.gamma.bcg.com/spark-training/spark-c-training/blob/master/day%201/part%201/shell/exercices/02-pyspark-shell.md)
+- [Hello Pyspark Shell](https://github.com/mehdi-lamrani/spark-training-v2.0/blob/master/day%201/part%201/shell/exercices/02-pyspark-shell.md)

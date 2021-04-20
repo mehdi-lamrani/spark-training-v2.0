@@ -8,7 +8,7 @@ This guide will guide you through establishing an SSH connection to your cluster
 
 - Download the following private key : 
 
-  Head to thie following page : [ppk file](/res/bin/GAMMA440.ppk)<br>
+  Head to thie following page : [ppk file](/res/bin/ALTEN440.ppk)<br>
   **IMPORTANT : Select "Raw" (upper right corner button above the github document), click, then save (Ctrl-S or Cmd-S).**   
   **Make SURE to remove .txt extension and keep .ppk**
 
@@ -26,7 +26,7 @@ This guide will guide you through establishing an SSH connection to your cluster
 
 - Download the following private key : 
 
-  Head to thie following page : [pem file](/res/bin/GAMMA440.pem)<br>
+  Head to thie following page : [pem file](/res/bin/ALTEN440.pem)<br>
   **IMPORTANT : Select "Raw" (upper right corner button above the github document), click, then save (Ctrl-S or Cmd-S).**   
   **Make SURE to remove .txt extension and keep .pem**
 
