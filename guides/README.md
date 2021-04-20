@@ -1,4 +1,4 @@
-# Spark Workshop for Gamma C
+# Spark Workshop
 # Getting acquainted to your working environment
   This is your goto reference page when you want to get a refresher about your technical resources
 
