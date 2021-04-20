@@ -1,0 +1,3320 @@
+﻿{
+  "paragraphs": [
+    {
+      "text": "%md\n- *Reminder about the data :*\n\nWe will be working with the Bureau of Transportation dataset\n\nThis time you will not have to download the data from S3 and load it into HDFS  \n(That was for education purposes for you to know how to do it by yourself). \nData is already loaded in HDFS for you. \n\nYou can find dataset description here :   \n[TRANSPORTATION SATISTIC AIRLINE TIME DATASET](https://www.transtats.bts.gov/Tables.asp?DB_ID=120&DB_Name=Airline%20On-Time%20Performance%20Data&DB_Short_Name=On-Time#)\n\nThis will be useful to understand the column contents and the reference data as well",
+      "user": "anonymous",
+      "dateUpdated": "2020-11-08T20:45:08+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "text",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/text",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<ul>\n<li><em>Reminder about the data :</em></li>\n</ul>\n<p>We will be working with the Bureau of Transportation dataset</p>\n<p>This time you will not have to download the data from S3 and load it into HDFS\n<br  />(That was for education purposes for you to know how to do it by yourself).\n<br  />Data is already loaded in HDFS for you.</p>\n<p>You can find dataset description here :\n<br  /><a href=\"https://www.transtats.bts.gov/Tables.asp?DB_ID=120&amp;DB_Name=Airline%20On-Time%20Performance%20Data&amp;DB_Short_Name=On-Time#\">TRANSPORTATION SATISTIC AIRLINE TIME DATASET</a></p>\n<p>This will be useful to understand the column contents and the reference data as well</p>\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1604862285638_-672189236",
+      "id": "paragraph_1604862285638_-672189236",
+      "dateCreated": "2020-11-08T19:04:45+0000",
+      "dateStarted": "2020-11-08T20:43:44+0000",
+      "dateFinished": "2020-11-08T20:43:44+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:232"
+    },
+    {
+      "text": "%pyspark\nsc",
+      "user": "anonymous",
+      "dateUpdated": "2020-11-08T20:45:08+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "<SparkContext master=yarn appName=Zeppelin>\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1604851462832_199661965",
+      "id": "paragraph_1604851462832_199661965",
+      "dateCreated": "2020-11-08T16:04:22+0000",
+      "dateStarted": "2020-11-08T20:42:47+0000",
+      "dateFinished": "2020-11-08T20:42:47+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:233"
+    },
+    {
+      "text": "%sh\nhdfs dfs -ls /user/root/data/BOTS/CSV",
+      "user": "anonymous",
+      "dateUpdated": "2020-11-08T20:45:08+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/sh",
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Found 12 items\n-rw-r--r--   1 hadoop hadoop  263023752 2020-11-08 14:53 /user/root/data/BOTS/CSV/BOTS_2019_01.csv\n-rw-r--r--   1 hadoop hadoop  240655097 2020-11-08 14:54 /user/root/data/BOTS/CSV/BOTS_2019_02.csv\n-rw-r--r--   1 hadoop hadoop  284796893 2020-11-08 14:54 /user/root/data/BOTS/CSV/BOTS_2019_03.csv\n-rw-r--r--   1 hadoop hadoop  275835756 2020-11-08 14:53 /user/root/data/BOTS/CSV/BOTS_2019_04.csv\n-rw-r--r--   1 hadoop hadoop  287247495 2020-11-08 14:53 /user/root/data/BOTS/CSV/BOTS_2019_05.csv\n-rw-r--r--   1 hadoop hadoop  287980953 2020-11-08 14:53 /user/root/data/BOTS/CSV/BOTS_2019_06.csv\n-rw-r--r--   1 hadoop hadoop  297677998 2020-11-08 14:54 /user/root/data/BOTS/CSV/BOTS_2019_07.csv\n-rw-r--r--   1 hadoop hadoop  297461281 2020-11-08 14:54 /user/root/data/BOTS/CSV/BOTS_2019_08.csv\n-rw-r--r--   1 hadoop hadoop  272856955 2020-11-08 14:53 /user/root/data/BOTS/CSV/BOTS_2019_09.csv\n-rw-r--r--   1 hadoop hadoop  287692620 2020-11-08 14:53 /user/root/data/BOTS/CSV/BOTS_2019_10.csv\n-rw-r--r--   1 hadoop hadoop  272302539 2020-11-08 14:54 /user/root/data/BOTS/CSV/BOTS_2019_11.csv\n-rw-r--r--   1 hadoop hadoop  283564511 2020-11-08 14:54 /user/root/data/BOTS/CSV/BOTS_2019_12.csv\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1604863510583_-1342724508",
+      "id": "paragraph_1604863510583_-1342724508",
+      "dateCreated": "2020-11-08T19:25:10+0000",
+      "dateStarted": "2020-11-08T20:42:47+0000",
+      "dateFinished": "2020-11-08T20:42:49+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:234"
+    },
+    {
+      "text": "%sh\nhdfs dfs -ls /user/root/data/BOTS_REF/CSV",
+      "user": "anonymous",
+      "dateUpdated": "2020-11-08T20:45:08+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/sh",
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Found 19 items\n-rw-r--r--   1 hadoop hadoop      62852 2020-11-08 14:54 /user/root/data/BOTS_REF/CSV/AIRLINE_ID.csv\n-rw-r--r--   1 hadoop hadoop     303159 2020-11-08 14:54 /user/root/data/BOTS_REF/CSV/AIRPORT.csv\n-rw-r--r--   1 hadoop hadoop     315342 2020-11-08 14:54 /user/root/data/BOTS_REF/CSV/AIRPORT_ID.csv\n-rw-r--r--   1 hadoop hadoop     906720 2020-11-08 14:54 /user/root/data/BOTS_REF/CSV/AIRPORT_SEQ_ID.csv\n-rw-r--r--   1 hadoop hadoop         91 2020-11-08 14:54 /user/root/data/BOTS_REF/CSV/CANCELLATION.csv\n-rw-r--r--   1 hadoop hadoop      84204 2020-11-08 14:54 /user/root/data/BOTS_REF/CSV/CARRIER_HISTORY.csv\n-rw-r--r--   1 hadoop hadoop     168916 2020-11-08 14:54 /user/root/data/BOTS_REF/CSV/CITY_MARKET_ID.csv\n-rw-r--r--   1 hadoop hadoop        637 2020-11-08 14:54 /user/root/data/BOTS_REF/CSV/DEPARRBLK.csv\n-rw-r--r--   1 hadoop hadoop        278 2020-11-08 14:54 /user/root/data/BOTS_REF/CSV/DISTANCE_GROUP.csv\n-rw-r--r--   1 hadoop hadoop        314 2020-11-08 14:54 /user/root/data/BOTS_REF/CSV/DIVERSIONS.csv\n-rw-r--r--   1 hadoop hadoop        191 2020-11-08 14:54 /user/root/data/BOTS_REF/CSV/MONTHS.csv\n-rw-r--r--   1 hadoop hadoop        585 2020-11-08 14:54 /user/root/data/BOTS_REF/CSV/ONTIME_DELAY_GROUPS.csv\n-rw-r--r--   1 hadoop hadoop        159 2020-11-08 14:54 /user/root/data/BOTS_REF/CSV/QUARTERS.csv\n-rw-r--r--   1 hadoop hadoop       1421 2020-11-08 14:54 /user/root/data/BOTS_REF/CSV/STATE_ABR_AVIATION.csv\n-rw-r--r--   1 hadoop hadoop       1663 2020-11-08 14:54 /user/root/data/BOTS_REF/CSV/STATE_FIPS.csv\n-rw-r--r--   1 hadoop hadoop      51053 2020-11-08 14:54 /user/root/data/BOTS_REF/CSV/UNIQUE_CARRIERS.csv\n-rw-r--r--   1 hadoop hadoop        139 2020-11-08 14:54 /user/root/data/BOTS_REF/CSV/WEEKDAYS.csv\n-rw-r--r--   1 hadoop hadoop       6816 2020-11-08 14:54 /user/root/data/BOTS_REF/CSV/WORLD_AREA_CODES.csv\n-rw-r--r--   1 hadoop hadoop         39 2020-11-08 14:54 /user/root/data/BOTS_REF/CSV/YESNO_RESP.csv\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1604863574246_-1749803228",
+      "id": "paragraph_1604863574246_-1749803228",
+      "dateCreated": "2020-11-08T19:26:14+0000",
+      "dateStarted": "2020-11-08T20:42:49+0000",
+      "dateFinished": "2020-11-08T20:42:50+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:235"
+    },
+    {
+      "text": "%md\n **READ MAIN DATASET FROM CSV FILES**",
+      "user": "anonymous",
+      "dateUpdated": "2020-11-08T20:58:35+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "text",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/text",
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<p><strong>READ MAIN DATASET FROM CSV FILES</strong></p>\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1604868799465_-1034634302",
+      "id": "paragraph_1604868799465_-1034634302",
+      "dateCreated": "2020-11-08T20:53:19+0000",
+      "dateStarted": "2020-11-08T20:58:26+0000",
+      "dateFinished": "2020-11-08T20:58:26+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:236"
+    },
+    {
+      "text": "%pyspark\nAIR_DATA=spark.read.option(\"inferSchema\",True).option(\"header\",True).csv(\"/user/root/data/BOTS/CSV/\")",
+      "user": "anonymous",
+      "dateUpdated": "2020-11-08T20:45:08+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=158",
+              "$$hashKey": "object:1909"
+            },
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=159",
+              "$$hashKey": "object:1910"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1604851551209_-1824232127",
+      "id": "paragraph_1604851551209_-1824232127",
+      "dateCreated": "2020-11-08T16:05:51+0000",
+      "dateStarted": "2020-11-08T20:42:51+0000",
+      "dateFinished": "2020-11-08T20:43:18+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:237"
+    },
+    {
+      "title": "WRITE TO PARQUET FORMAT",
+      "text": "%pyspark\nAIR_DATA.write.parquet(\"/user/root/data/BOTS/PARQUET/AIR_DATA.parquet\")",
+      "user": "anonymous",
+      "dateUpdated": "2020-11-08T21:05:44+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "tableHide": false,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1604852856100_-1325843687",
+      "id": "paragraph_1604852856100_-1325843687",
+      "dateCreated": "2020-11-08T16:27:36+0000",
+      "dateStarted": "2020-11-08T20:43:18+0000",
+      "dateFinished": "2020-11-08T20:43:18+0000",
+      "status": "ERROR",
+      "$$hashKey": "object:238"
+    },
+    {
+      "text": "%md\n **READ MAIN DATASET FROM CSV FILES**",
+      "user": "anonymous",
+      "dateUpdated": "2020-11-08T20:59:05+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "text",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/text",
+        "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1604869145122_-18005158",
+      "id": "paragraph_1604869145122_-18005158",
+      "dateCreated": "2020-11-08T20:59:05+0000",
+      "status": "READY",
+      "$$hashKey": "object:239"
+    },
+    {
+      "title": "import input_file_name function ",
+      "text": "%pyspark\nfrom pyspark.sql.functions import input_file_name ",
+      "user": "anonymous",
+      "dateUpdated": "2020-11-08T21:06:17+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "tableHide": false,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1604853486184_-1120825207",
+      "id": "paragraph_1604853486184_-1120825207",
+      "dateCreated": "2020-11-08T16:38:06+0000",
+      "dateStarted": "2020-11-08T16:44:35+0000",
+      "dateFinished": "2020-11-08T16:44:35+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:240"
+    },
+    {
+      "title": "display the files that the dataframe is pointing to",
+      "text": "%pyspark\nz.show(AIR_DATA.select(input_file_name()).limit(3))",
+      "user": "anonymous",
+      "dateUpdated": "2020-11-08T21:07:24+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "input_file_name()": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "tableHide": false,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "input_file_name()\nhdfs://ip-172-31-47-65.eu-west-3.compute.internal:8020/user/root/data/BOTS/CSV/BOTS_2019_01.csv\nhdfs://ip-172-31-47-65.eu-west-3.compute.internal:8020/user/root/data/BOTS/CSV/BOTS_2019_01.csv\nhdfs://ip-172-31-47-65.eu-west-3.compute.internal:8020/user/root/data/BOTS/CSV/BOTS_2019_01.csv\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=10",
+              "$$hashKey": "object:2080"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1604853877124_-1705833019",
+      "id": "paragraph_1604853877124_-1705833019",
+      "dateCreated": "2020-11-08T16:44:37+0000",
+      "dateStarted": "2020-11-08T16:45:26+0000",
+      "dateFinished": "2020-11-08T16:45:26+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:241"
+    },
+    {
+      "title": "Reload the dataframe from Parquet",
+      "text": "%pyspark\nAIR_DATA = spark.read.parquet(\"/user/root/data/BOTS/PARQUET/AIR_DATA.parquet\")",
+      "user": "anonymous",
+      "dateUpdated": "2020-11-08T21:07:51+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "tableHide": false,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=20",
+              "$$hashKey": "object:2126"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1604853941674_925844811",
+      "id": "paragraph_1604853941674_925844811",
+      "dateCreated": "2020-11-08T16:45:41+0000",
+      "dateStarted": "2020-11-08T18:14:48+0000",
+      "dateFinished": "2020-11-08T18:14:56+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:242"
+    },
+    {
+      "title": "display the files that the dataframe is pointing to",
+      "text": "%pyspark\nz.show(AIR_DATA.select(input_file_name()).limit(3))",
+      "user": "anonymous",
+      "dateUpdated": "2020-11-08T21:08:01+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "input_file_name()": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "editorHide": false,
+        "tableHide": false,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "input_file_name()\nhdfs://ip-172-31-47-65.eu-west-3.compute.internal:8020/user/root/data/BOTS/PARQUET/AIR_DATA.parquet/part-00005-49ab9afa-7427-4bc5-a2b4-d2a2d3d7dd40-c000.snappy.parquet\nhdfs://ip-172-31-47-65.eu-west-3.compute.internal:8020/user/root/data/BOTS/PARQUET/AIR_DATA.parquet/part-00005-49ab9afa-7427-4bc5-a2b4-d2a2d3d7dd40-c000.snappy.parquet\nhdfs://ip-172-31-47-65.eu-west-3.compute.internal:8020/user/root/data/BOTS/PARQUET/AIR_DATA.parquet/part-00005-49ab9afa-7427-4bc5-a2b4-d2a2d3d7dd40-c000.snappy.parquet\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=12",
+              "$$hashKey": "object:2172"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1604853963957_2020271304",
+      "id": "paragraph_1604853963957_2020271304",
+      "dateCreated": "2020-11-08T16:46:03+0000",
+      "dateStarted": "2020-11-08T16:46:26+0000",
+      "dateFinished": "2020-11-08T16:46:26+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:243"
+    },
+    {
+      "text": "%sql\n--DROP TABLE AIRPORTS",
+      "user": "anonymous",
+      "dateUpdated": "2020-11-08T20:45:08+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql",
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1604858695848_1156217200",
+      "id": "paragraph_1604858695848_1156217200",
+      "dateCreated": "2020-11-08T18:04:55+0000",
+      "dateStarted": "2020-11-08T18:14:20+0000",
+      "dateFinished": "2020-11-08T18:14:22+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:244"
+    },
+    {
+      "title": "Save As Table",
+      "text": "%pyspark\n\nAIR_DATA.write.saveAsTable(\"AIR_DATA\")\n\n#Just in case you need to rewrite the data :\n#AIR_DATA.write.mode('overwrite').option(\"path\", \"/user/spark/warehouse/air_data\").saveAsTable(\"AIR_DATA\")\n",
+      "user": "anonymous",
+      "dateUpdated": "2020-11-08T21:09:42+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "tableHide": false,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=21",
+              "$$hashKey": "object:2258"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1604858531102_-1578283840",
+      "id": "paragraph_1604858531102_-1578283840",
+      "dateCreated": "2020-11-08T18:02:11+0000",
+      "dateStarted": "2020-11-08T18:16:55+0000",
+      "dateFinished": "2020-11-08T18:17:56+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:245"
+    },
+    {
+      "title": "Load some REF Data",
+      "text": "%pyspark\nREF_AIRLINE=spark.read.option(\"inferSchema\",True).option(\"header\",True).csv(\"/user/root/data/BOTS_REF/CSV/AIRLINE_ID.csv\")\nREF_AIRPORT=spark.read.option(\"inferSchema\",True).option(\"header\",True).csv(\"/user/root/data/BOTS_REF/CSV/AIRPORT_ID.csv\")\n\n",
+      "user": "anonymous",
+      "dateUpdated": "2020-11-08T21:10:06+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "tableHide": false,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=0",
+              "$$hashKey": "object:2304"
+            },
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=1",
+              "$$hashKey": "object:2305"
+            },
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=2",
+              "$$hashKey": "object:2306"
+            },
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=3",
+              "$$hashKey": "object:2307"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1604851614875_-890704161",
+      "id": "paragraph_1604851614875_-890704161",
+      "dateCreated": "2020-11-08T16:06:54+0000",
+      "dateStarted": "2020-11-08T16:10:32+0000",
+      "dateFinished": "2020-11-08T16:10:44+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:246"
+    },
+    {
+      "title": "Write to Parquet",
+      "text": "%pyspark\n\nREF_AIRLINE.write.parquet(\"/user/root/data/BOTS_REF/PARQUET/AIRLINE_ID.parquet\")\nREF_AIRPORT.write.parquet(\"/user/root/data/BOTS_REF/PARQUET/AIRPORT_ID.parquet\")",
+      "user": "anonymous",
+      "dateUpdated": "2020-11-08T21:10:34+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "tableHide": false,
+        "editorHide": false,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1604851768726_-2117010107",
+      "id": "paragraph_1604851768726_-2117010107",
+      "dateCreated": "2020-11-08T16:09:28+0000",
+      "dateStarted": "2020-11-08T17:38:57+0000",
+      "dateFinished": "2020-11-08T17:38:57+0000",
+      "status": "ERROR",
+      "$$hashKey": "object:247"
+    },
+    {
+      "title": "Reload from Parquet",
+      "text": "%pyspark\n\nREF_AIRLINE = spark.read.parquet(\"/user/root/data/BOTS_REF/PARQUET/AIRLINE_ID.parquet\")\nREF_AIRPORT = spark.read.parquet(\"/user/root/data/BOTS_REF/PARQUET/AIRPORT_ID.parquet\")",
+      "user": "anonymous",
+      "dateUpdated": "2020-11-08T21:10:49+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "tableHide": false,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=13",
+              "$$hashKey": "object:2405"
+            },
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=14",
+              "$$hashKey": "object:2406"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1604857089309_978367369",
+      "id": "paragraph_1604857089309_978367369",
+      "dateCreated": "2020-11-08T17:38:09+0000",
+      "dateStarted": "2020-11-08T17:42:01+0000",
+      "dateFinished": "2020-11-08T17:42:08+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:248"
+    },
+    {
+      "title": "Save as Tables",
+      "text": "%pyspark\n\nREF_AIRLINE.write.saveAsTable(\"AIRLINE\")\nREF_AIRPORT.write.saveAsTable(\"AIRPORT\")\n",
+      "user": "anonymous",
+      "dateUpdated": "2020-11-08T21:11:00+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "tableHide": false,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=18",
+              "$$hashKey": "object:2456"
+            },
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=19",
+              "$$hashKey": "object:2457"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1604857266623_1015907490",
+      "id": "paragraph_1604857266623_1015907490",
+      "dateCreated": "2020-11-08T17:41:06+0000",
+      "dateStarted": "2020-11-08T17:52:42+0000",
+      "dateFinished": "2020-11-08T17:52:53+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:249"
+    },
+    {
+      "title": "A little count of the DF",
+      "text": "%pyspark\nAIR_DATA.count()",
+      "user": "anonymous",
+      "dateUpdated": "2020-11-08T21:11:53+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "tableHide": false,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "7422037\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=69",
+              "$$hashKey": "object:2507"
+            },
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=70",
+              "$$hashKey": "object:2508"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1604861993199_601978787",
+      "id": "paragraph_1604861993199_601978787",
+      "dateCreated": "2020-11-08T18:59:53+0000",
+      "dateStarted": "2020-11-08T19:00:05+0000",
+      "dateFinished": "2020-11-08T19:00:05+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:250"
+    },
+    {
+      "title": "Pretty print Columns for Reference",
+      "text": "%pyspark\nfrom pprint import pprint \npprint(AIR_DATA.columns)",
+      "user": "anonymous",
+      "dateUpdated": "2020-11-08T21:12:12+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "tableHide": false,
+        "editorHide": false,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "['Year',\n 'Quarter',\n 'Month',\n 'DayofMonth',\n 'DayOfWeek',\n 'FlightDate',\n 'Reporting_Airline',\n 'DOT_ID_Reporting_Airline',\n 'IATA_CODE_Reporting_Airline',\n 'Tail_Number',\n 'Flight_Number_Reporting_Airline',\n 'OriginAirportID',\n 'OriginAirportSeqID',\n 'OriginCityMarketID',\n 'Origin',\n 'OriginCityName',\n 'OriginState',\n 'OriginStateFips',\n 'OriginStateName',\n 'OriginWac',\n 'DestAirportID',\n 'DestAirportSeqID',\n 'DestCityMarketID',\n 'Dest',\n 'DestCityName',\n 'DestState',\n 'DestStateFips',\n 'DestStateName',\n 'DestWac',\n 'CRSDepTime',\n 'DepTime',\n 'DepDelay',\n 'DepDelayMinutes',\n 'DepDel15',\n 'DepartureDelayGroups',\n 'DepTimeBlk',\n 'TaxiOut',\n 'WheelsOff',\n 'WheelsOn',\n 'TaxiIn',\n 'CRSArrTime',\n 'ArrTime',\n 'ArrDelay',\n 'ArrDelayMinutes',\n 'ArrDel15',\n 'ArrivalDelayGroups',\n 'ArrTimeBlk',\n 'Cancelled',\n 'CancellationCode',\n 'Diverted',\n 'CRSElapsedTime',\n 'ActualElapsedTime',\n 'AirTime',\n 'Flights',\n 'Distance',\n 'DistanceGroup',\n 'CarrierDelay',\n 'WeatherDelay',\n 'NASDelay',\n 'SecurityDelay',\n 'LateAircraftDelay',\n 'FirstDepTime',\n 'TotalAddGTime',\n 'LongestAddGTime',\n 'DivAirportLandings',\n 'DivReachedDest',\n 'DivActualElapsedTime',\n 'DivArrDelay',\n 'DivDistance',\n 'Div1Airport',\n 'Div1AirportID',\n 'Div1AirportSeqID',\n 'Div1WheelsOn',\n 'Div1TotalGTime',\n 'Div1LongestGTime',\n 'Div1WheelsOff',\n 'Div1TailNum',\n 'Div2Airport',\n 'Div2AirportID',\n 'Div2AirportSeqID',\n 'Div2WheelsOn',\n 'Div2TotalGTime',\n 'Div2LongestGTime',\n 'Div2WheelsOff',\n 'Div2TailNum',\n 'Div3Airport',\n 'Div3AirportID',\n 'Div3AirportSeqID',\n 'Div3WheelsOn',\n 'Div3TotalGTime',\n 'Div3LongestGTime',\n 'Div3WheelsOff',\n 'Div3TailNum',\n 'Div4Airport',\n 'Div4AirportID',\n 'Div4AirportSeqID',\n 'Div4WheelsOn',\n 'Div4TotalGTime',\n 'Div4LongestGTime',\n 'Div4WheelsOff',\n 'Div4TailNum',\n 'Div5Airport',\n 'Div5AirportID',\n 'Div5AirportSeqID',\n 'Div5WheelsOn',\n 'Div5TotalGTime',\n 'Div5LongestGTime',\n 'Div5WheelsOff',\n 'Div5TailNum',\n '_c109']\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1604858600257_580559118",
+      "id": "paragraph_1604858600257_580559118",
+      "dateCreated": "2020-11-08T18:03:20+0000",
+      "dateStarted": "2020-11-08T19:03:36+0000",
+      "dateFinished": "2020-11-08T19:03:36+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:251"
+    },
+    {
+      "title": "Explore the data a bit",
+      "text": "%pyspark\nAIR_DATA.select('Tail_Number').distinct().count()",
+      "user": "anonymous",
+      "dateUpdated": "2020-11-08T21:13:14+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "tableHide": false,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "5892\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=74",
+              "$$hashKey": "object:2598"
+            },
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=75",
+              "$$hashKey": "object:2599"
+            },
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=76",
+              "$$hashKey": "object:2600"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1604862039475_481910667",
+      "id": "paragraph_1604862039475_481910667",
+      "dateCreated": "2020-11-08T19:00:39+0000",
+      "dateStarted": "2020-11-08T19:02:37+0000",
+      "dateFinished": "2020-11-08T19:02:49+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:252"
+    },
+    {
+      "text": "%sql\nSELECT flightdate, originairportid,dot_id_reporting_airline from AIR_DATA LIMIT 100",
+      "user": "anonymous",
+      "dateUpdated": "2020-11-08T20:49:50+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "flightdate": "string",
+                      "originairportid": "string",
+                      "dot_id_reporting_airline": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql",
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "flightdate\toriginairportid\tdot_id_reporting_airline\n2019-04-17\t11057\t19805\n2019-04-18\t11057\t19805\n2019-04-19\t11057\t19805\n2019-04-20\t11057\t19805\n2019-04-21\t11057\t19805\n2019-04-22\t11057\t19805\n2019-04-23\t11057\t19805\n2019-04-24\t11057\t19805\n2019-04-25\t11057\t19805\n2019-04-26\t11057\t19805\n2019-04-27\t11057\t19805\n2019-04-28\t11057\t19805\n2019-04-29\t11057\t19805\n2019-04-30\t11057\t19805\n2019-04-01\t11298\t19805\n2019-04-02\t11298\t19805\n2019-04-03\t11298\t19805\n2019-04-04\t11298\t19805\n2019-04-05\t11298\t19805\n2019-04-06\t11298\t19805\n2019-04-07\t11298\t19805\n2019-04-08\t11298\t19805\n2019-04-09\t11298\t19805\n2019-04-10\t11298\t19805\n2019-04-11\t11298\t19805\n2019-04-12\t11298\t19805\n2019-04-13\t11298\t19805\n2019-04-14\t11298\t19805\n2019-04-15\t11298\t19805\n2019-04-16\t11298\t19805\n2019-04-17\t11298\t19805\n2019-04-18\t11298\t19805\n2019-04-19\t11298\t19805\n2019-04-20\t11298\t19805\n2019-04-21\t11298\t19805\n2019-04-22\t11298\t19805\n2019-04-23\t11298\t19805\n2019-04-24\t11298\t19805\n2019-04-25\t11298\t19805\n2019-04-26\t11298\t19805\n2019-04-27\t11298\t19805\n2019-04-28\t11298\t19805\n2019-04-29\t11298\t19805\n2019-04-30\t11298\t19805\n2019-04-06\t10397\t19805\n2019-04-13\t10397\t19805\n2019-04-20\t10397\t19805\n2019-04-27\t10397\t19805\n2019-04-01\t14100\t19805\n2019-04-01\t11057\t19805\n2019-04-02\t11057\t19805\n2019-04-03\t11057\t19805\n2019-04-04\t11057\t19805\n2019-04-05\t11057\t19805\n2019-04-07\t11057\t19805\n2019-04-08\t11057\t19805\n2019-04-09\t11057\t19805\n2019-04-10\t11057\t19805\n2019-04-11\t11057\t19805\n2019-04-12\t11057\t19805\n2019-04-14\t11057\t19805\n2019-04-15\t11057\t19805\n2019-04-16\t11057\t19805\n2019-04-17\t11057\t19805\n2019-04-18\t11057\t19805\n2019-04-19\t11057\t19805\n2019-04-21\t11057\t19805\n2019-04-22\t11057\t19805\n2019-04-23\t11057\t19805\n2019-04-24\t11057\t19805\n2019-04-25\t11057\t19805\n2019-04-26\t11057\t19805\n2019-04-28\t11057\t19805\n2019-04-29\t11057\t19805\n2019-04-30\t11057\t19805\n2019-04-01\t14307\t19805\n2019-04-02\t14307\t19805\n2019-04-03\t14307\t19805\n2019-04-04\t14307\t19805\n2019-04-05\t14307\t19805\n2019-04-07\t14307\t19805\n2019-04-08\t14307\t19805\n2019-04-09\t14307\t19805\n2019-04-10\t14307\t19805\n2019-04-11\t14307\t19805\n2019-04-12\t14307\t19805\n2019-04-14\t14307\t19805\n2019-04-15\t14307\t19805\n2019-04-16\t14307\t19805\n2019-04-17\t14307\t19805\n2019-04-18\t14307\t19805\n2019-04-19\t14307\t19805\n2019-04-21\t14307\t19805\n2019-04-22\t14307\t19805\n2019-04-23\t14307\t19805\n2019-04-24\t14307\t19805\n2019-04-25\t14307\t19805\n2019-04-26\t14307\t19805\n2019-04-28\t14307\t19805\n2019-04-29\t14307\t19805\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=35",
+              "$$hashKey": "object:2654"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1604860183327_-1192682735",
+      "id": "paragraph_1604860183327_-1192682735",
+      "dateCreated": "2020-11-08T18:29:43+0000",
+      "dateStarted": "2020-11-08T18:32:07+0000",
+      "dateFinished": "2020-11-08T18:32:07+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:253"
+    },
+    {
+      "title": "Write some SQL to get Warmed Up",
+      "text": "%sql \n\nSELECT AIR_DATA.flightDate, \nORIGIN.Description as AirportOrigin, \nDEST.Description as AirportDest,\nAIRLINE.Description as Airline \nFROM AIR_DATA, AIRPORT as ORIGIN,  AIRPORT as DEST, AIRLINE \nwhere AIR_DATA.OriginAirportID=ORIGIN.code \nand  AIR_DATA.DestAirportID=DEST.code\nand AIR_DATA.dot_id_Reporting_Airline=AIRLINE.code\nLIMIT 100",
+      "user": "anonymous",
+      "dateUpdated": "2020-11-08T21:13:57+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "flightDate": "string",
+                      "AirportOrigin": "string",
+                      "AirportDest": "string",
+                      "Airline": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql",
+        "tableHide": false,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "flightDate\tAirportOrigin\tAirportDest\tAirline\n2019-04-17\tCharlotte, NC: Charlotte Douglas International\tDallas/Fort Worth, TX: Dallas/Fort Worth International\tAmerican Airlines Inc.: AA\n2019-04-18\tCharlotte, NC: Charlotte Douglas International\tDallas/Fort Worth, TX: Dallas/Fort Worth International\tAmerican Airlines Inc.: AA\n2019-04-19\tCharlotte, NC: Charlotte Douglas International\tDallas/Fort Worth, TX: Dallas/Fort Worth International\tAmerican Airlines Inc.: AA\n2019-04-20\tCharlotte, NC: Charlotte Douglas International\tDallas/Fort Worth, TX: Dallas/Fort Worth International\tAmerican Airlines Inc.: AA\n2019-04-21\tCharlotte, NC: Charlotte Douglas International\tDallas/Fort Worth, TX: Dallas/Fort Worth International\tAmerican Airlines Inc.: AA\n2019-04-22\tCharlotte, NC: Charlotte Douglas International\tDallas/Fort Worth, TX: Dallas/Fort Worth International\tAmerican Airlines Inc.: AA\n2019-04-23\tCharlotte, NC: Charlotte Douglas International\tDallas/Fort Worth, TX: Dallas/Fort Worth International\tAmerican Airlines Inc.: AA\n2019-04-24\tCharlotte, NC: Charlotte Douglas International\tDallas/Fort Worth, TX: Dallas/Fort Worth International\tAmerican Airlines Inc.: AA\n2019-04-25\tCharlotte, NC: Charlotte Douglas International\tDallas/Fort Worth, TX: Dallas/Fort Worth International\tAmerican Airlines Inc.: AA\n2019-04-26\tCharlotte, NC: Charlotte Douglas International\tDallas/Fort Worth, TX: Dallas/Fort Worth International\tAmerican Airlines Inc.: AA\n2019-04-27\tCharlotte, NC: Charlotte Douglas International\tDallas/Fort Worth, TX: Dallas/Fort Worth International\tAmerican Airlines Inc.: AA\n2019-04-28\tCharlotte, NC: Charlotte Douglas International\tDallas/Fort Worth, TX: Dallas/Fort Worth International\tAmerican Airlines Inc.: AA\n2019-04-29\tCharlotte, NC: Charlotte Douglas International\tDallas/Fort Worth, TX: Dallas/Fort Worth International\tAmerican Airlines Inc.: AA\n2019-04-30\tCharlotte, NC: Charlotte Douglas International\tDallas/Fort Worth, TX: Dallas/Fort Worth International\tAmerican Airlines Inc.: AA\n2019-04-01\tDallas/Fort Worth, TX: Dallas/Fort Worth International\tCharlotte, NC: Charlotte Douglas International\tAmerican Airlines Inc.: AA\n2019-04-02\tDallas/Fort Worth, TX: Dallas/Fort Worth International\tCharlotte, NC: Charlotte Douglas International\tAmerican Airlines Inc.: AA\n2019-04-03\tDallas/Fort Worth, TX: Dallas/Fort Worth International\tCharlotte, NC: Charlotte Douglas International\tAmerican Airlines Inc.: AA\n2019-04-04\tDallas/Fort Worth, TX: Dallas/Fort Worth International\tCharlotte, NC: Charlotte Douglas International\tAmerican Airlines Inc.: AA\n2019-04-05\tDallas/Fort Worth, TX: Dallas/Fort Worth International\tCharlotte, NC: Charlotte Douglas International\tAmerican Airlines Inc.: AA\n2019-04-06\tDallas/Fort Worth, TX: Dallas/Fort Worth International\tCharlotte, NC: Charlotte Douglas International\tAmerican Airlines Inc.: AA\n2019-04-07\tDallas/Fort Worth, TX: Dallas/Fort Worth International\tCharlotte, NC: Charlotte Douglas International\tAmerican Airlines Inc.: AA\n2019-04-08\tDallas/Fort Worth, TX: Dallas/Fort Worth International\tCharlotte, NC: Charlotte Douglas International\tAmerican Airlines Inc.: AA\n2019-04-09\tDallas/Fort Worth, TX: Dallas/Fort Worth International\tCharlotte, NC: Charlotte Douglas International\tAmerican Airlines Inc.: AA\n2019-04-10\tDallas/Fort Worth, TX: Dallas/Fort Worth International\tCharlotte, NC: Charlotte Douglas International\tAmerican Airlines Inc.: AA\n2019-04-11\tDallas/Fort Worth, TX: Dallas/Fort Worth International\tCharlotte, NC: Charlotte Douglas International\tAmerican Airlines Inc.: AA\n2019-04-12\tDallas/Fort Worth, TX: Dallas/Fort Worth International\tCharlotte, NC: Charlotte Douglas International\tAmerican Airlines Inc.: AA\n2019-04-13\tDallas/Fort Worth, TX: Dallas/Fort Worth International\tCharlotte, NC: Charlotte Douglas International\tAmerican Airlines Inc.: AA\n2019-04-14\tDallas/Fort Worth, TX: Dallas/Fort Worth International\tCharlotte, NC: Charlotte Douglas International\tAmerican Airlines Inc.: AA\n2019-04-15\tDallas/Fort Worth, TX: Dallas/Fort Worth International\tCharlotte, NC: Charlotte Douglas International\tAmerican Airlines Inc.: AA\n2019-04-16\tDallas/Fort Worth, TX: Dallas/Fort Worth International\tCharlotte, NC: Charlotte Douglas International\tAmerican Airlines Inc.: AA\n2019-04-17\tDallas/Fort Worth, TX: Dallas/Fort Worth International\tCharlotte, NC: Charlotte Douglas International\tAmerican Airlines Inc.: AA\n2019-04-18\tDallas/Fort Worth, TX: Dallas/Fort Worth International\tCharlotte, NC: Charlotte Douglas International\tAmerican Airlines Inc.: AA\n2019-04-19\tDallas/Fort Worth, TX: Dallas/Fort Worth International\tCharlotte, NC: Charlotte Douglas International\tAmerican Airlines Inc.: AA\n2019-04-20\tDallas/Fort Worth, TX: Dallas/Fort Worth International\tCharlotte, NC: Charlotte Douglas International\tAmerican Airlines Inc.: AA\n2019-04-21\tDallas/Fort Worth, TX: Dallas/Fort Worth International\tCharlotte, NC: Charlotte Douglas International\tAmerican Airlines Inc.: AA\n2019-04-22\tDallas/Fort Worth, TX: Dallas/Fort Worth International\tCharlotte, NC: Charlotte Douglas International\tAmerican Airlines Inc.: AA\n2019-04-23\tDallas/Fort Worth, TX: Dallas/Fort Worth International\tCharlotte, NC: Charlotte Douglas International\tAmerican Airlines Inc.: AA\n2019-04-24\tDallas/Fort Worth, TX: Dallas/Fort Worth International\tCharlotte, NC: Charlotte Douglas International\tAmerican Airlines Inc.: AA\n2019-04-25\tDallas/Fort Worth, TX: Dallas/Fort Worth International\tCharlotte, NC: Charlotte Douglas International\tAmerican Airlines Inc.: AA\n2019-04-26\tDallas/Fort Worth, TX: Dallas/Fort Worth International\tCharlotte, NC: Charlotte Douglas International\tAmerican Airlines Inc.: AA\n2019-04-27\tDallas/Fort Worth, TX: Dallas/Fort Worth International\tCharlotte, NC: Charlotte Douglas International\tAmerican Airlines Inc.: AA\n2019-04-28\tDallas/Fort Worth, TX: Dallas/Fort Worth International\tCharlotte, NC: Charlotte Douglas International\tAmerican Airlines Inc.: AA\n2019-04-29\tDallas/Fort Worth, TX: Dallas/Fort Worth International\tCharlotte, NC: Charlotte Douglas International\tAmerican Airlines Inc.: AA\n2019-04-30\tDallas/Fort Worth, TX: Dallas/Fort Worth International\tCharlotte, NC: Charlotte Douglas International\tAmerican Airlines Inc.: AA\n2019-04-06\tAtlanta, GA: Hartsfield-Jackson Atlanta International\tPhiladelphia, PA: Philadelphia International\tAmerican Airlines Inc.: AA\n2019-04-13\tAtlanta, GA: Hartsfield-Jackson Atlanta International\tPhiladelphia, PA: Philadelphia International\tAmerican Airlines Inc.: AA\n2019-04-20\tAtlanta, GA: Hartsfield-Jackson Atlanta International\tPhiladelphia, PA: Philadelphia International\tAmerican Airlines Inc.: AA\n2019-04-27\tAtlanta, GA: Hartsfield-Jackson Atlanta International\tPhiladelphia, PA: Philadelphia International\tAmerican Airlines Inc.: AA\n2019-04-01\tPhiladelphia, PA: Philadelphia International\tFort Myers, FL: Southwest Florida International\tAmerican Airlines Inc.: AA\n2019-04-01\tCharlotte, NC: Charlotte Douglas International\tProvidence, RI: Theodore Francis Green State\tAmerican Airlines Inc.: AA\n2019-04-02\tCharlotte, NC: Charlotte Douglas International\tProvidence, RI: Theodore Francis Green State\tAmerican Airlines Inc.: AA\n2019-04-03\tCharlotte, NC: Charlotte Douglas International\tProvidence, RI: Theodore Francis Green State\tAmerican Airlines Inc.: AA\n2019-04-04\tCharlotte, NC: Charlotte Douglas International\tProvidence, RI: Theodore Francis Green State\tAmerican Airlines Inc.: AA\n2019-04-05\tCharlotte, NC: Charlotte Douglas International\tProvidence, RI: Theodore Francis Green State\tAmerican Airlines Inc.: AA\n2019-04-07\tCharlotte, NC: Charlotte Douglas International\tProvidence, RI: Theodore Francis Green State\tAmerican Airlines Inc.: AA\n2019-04-08\tCharlotte, NC: Charlotte Douglas International\tProvidence, RI: Theodore Francis Green State\tAmerican Airlines Inc.: AA\n2019-04-09\tCharlotte, NC: Charlotte Douglas International\tProvidence, RI: Theodore Francis Green State\tAmerican Airlines Inc.: AA\n2019-04-10\tCharlotte, NC: Charlotte Douglas International\tProvidence, RI: Theodore Francis Green State\tAmerican Airlines Inc.: AA\n2019-04-11\tCharlotte, NC: Charlotte Douglas International\tProvidence, RI: Theodore Francis Green State\tAmerican Airlines Inc.: AA\n2019-04-12\tCharlotte, NC: Charlotte Douglas International\tProvidence, RI: Theodore Francis Green State\tAmerican Airlines Inc.: AA\n2019-04-14\tCharlotte, NC: Charlotte Douglas International\tProvidence, RI: Theodore Francis Green State\tAmerican Airlines Inc.: AA\n2019-04-15\tCharlotte, NC: Charlotte Douglas International\tProvidence, RI: Theodore Francis Green State\tAmerican Airlines Inc.: AA\n2019-04-16\tCharlotte, NC: Charlotte Douglas International\tProvidence, RI: Theodore Francis Green State\tAmerican Airlines Inc.: AA\n2019-04-17\tCharlotte, NC: Charlotte Douglas International\tProvidence, RI: Theodore Francis Green State\tAmerican Airlines Inc.: AA\n2019-04-18\tCharlotte, NC: Charlotte Douglas International\tProvidence, RI: Theodore Francis Green State\tAmerican Airlines Inc.: AA\n2019-04-19\tCharlotte, NC: Charlotte Douglas International\tProvidence, RI: Theodore Francis Green State\tAmerican Airlines Inc.: AA\n2019-04-21\tCharlotte, NC: Charlotte Douglas International\tProvidence, RI: Theodore Francis Green State\tAmerican Airlines Inc.: AA\n2019-04-22\tCharlotte, NC: Charlotte Douglas International\tProvidence, RI: Theodore Francis Green State\tAmerican Airlines Inc.: AA\n2019-04-23\tCharlotte, NC: Charlotte Douglas International\tProvidence, RI: Theodore Francis Green State\tAmerican Airlines Inc.: AA\n2019-04-24\tCharlotte, NC: Charlotte Douglas International\tProvidence, RI: Theodore Francis Green State\tAmerican Airlines Inc.: AA\n2019-04-25\tCharlotte, NC: Charlotte Douglas International\tProvidence, RI: Theodore Francis Green State\tAmerican Airlines Inc.: AA\n2019-04-26\tCharlotte, NC: Charlotte Douglas International\tProvidence, RI: Theodore Francis Green State\tAmerican Airlines Inc.: AA\n2019-04-28\tCharlotte, NC: Charlotte Douglas International\tProvidence, RI: Theodore Francis Green State\tAmerican Airlines Inc.: AA\n2019-04-29\tCharlotte, NC: Charlotte Douglas International\tProvidence, RI: Theodore Francis Green State\tAmerican Airlines Inc.: AA\n2019-04-30\tCharlotte, NC: Charlotte Douglas International\tProvidence, RI: Theodore Francis Green State\tAmerican Airlines Inc.: AA\n2019-04-01\tProvidence, RI: Theodore Francis Green State\tCharlotte, NC: Charlotte Douglas International\tAmerican Airlines Inc.: AA\n2019-04-02\tProvidence, RI: Theodore Francis Green State\tCharlotte, NC: Charlotte Douglas International\tAmerican Airlines Inc.: AA\n2019-04-03\tProvidence, RI: Theodore Francis Green State\tCharlotte, NC: Charlotte Douglas International\tAmerican Airlines Inc.: AA\n2019-04-04\tProvidence, RI: Theodore Francis Green State\tCharlotte, NC: Charlotte Douglas International\tAmerican Airlines Inc.: AA\n2019-04-05\tProvidence, RI: Theodore Francis Green State\tCharlotte, NC: Charlotte Douglas International\tAmerican Airlines Inc.: AA\n2019-04-07\tProvidence, RI: Theodore Francis Green State\tCharlotte, NC: Charlotte Douglas International\tAmerican Airlines Inc.: AA\n2019-04-08\tProvidence, RI: Theodore Francis Green State\tCharlotte, NC: Charlotte Douglas International\tAmerican Airlines Inc.: AA\n2019-04-09\tProvidence, RI: Theodore Francis Green State\tCharlotte, NC: Charlotte Douglas International\tAmerican Airlines Inc.: AA\n2019-04-10\tProvidence, RI: Theodore Francis Green State\tCharlotte, NC: Charlotte Douglas International\tAmerican Airlines Inc.: AA\n2019-04-11\tProvidence, RI: Theodore Francis Green State\tCharlotte, NC: Charlotte Douglas International\tAmerican Airlines Inc.: AA\n2019-04-12\tProvidence, RI: Theodore Francis Green State\tCharlotte, NC: Charlotte Douglas International\tAmerican Airlines Inc.: AA\n2019-04-14\tProvidence, RI: Theodore Francis Green State\tCharlotte, NC: Charlotte Douglas International\tAmerican Airlines Inc.: AA\n2019-04-15\tProvidence, RI: Theodore Francis Green State\tCharlotte, NC: Charlotte Douglas International\tAmerican Airlines Inc.: AA\n2019-04-16\tProvidence, RI: Theodore Francis Green State\tCharlotte, NC: Charlotte Douglas International\tAmerican Airlines Inc.: AA\n2019-04-17\tProvidence, RI: Theodore Francis Green State\tCharlotte, NC: Charlotte Douglas International\tAmerican Airlines Inc.: AA\n2019-04-18\tProvidence, RI: Theodore Francis Green State\tCharlotte, NC: Charlotte Douglas International\tAmerican Airlines Inc.: AA\n2019-04-19\tProvidence, RI: Theodore Francis Green State\tCharlotte, NC: Charlotte Douglas International\tAmerican Airlines Inc.: AA\n2019-04-21\tProvidence, RI: Theodore Francis Green State\tCharlotte, NC: Charlotte Douglas International\tAmerican Airlines Inc.: AA\n2019-04-22\tProvidence, RI: Theodore Francis Green State\tCharlotte, NC: Charlotte Douglas International\tAmerican Airlines Inc.: AA\n2019-04-23\tProvidence, RI: Theodore Francis Green State\tCharlotte, NC: Charlotte Douglas International\tAmerican Airlines Inc.: AA\n2019-04-24\tProvidence, RI: Theodore Francis Green State\tCharlotte, NC: Charlotte Douglas International\tAmerican Airlines Inc.: AA\n2019-04-25\tProvidence, RI: Theodore Francis Green State\tCharlotte, NC: Charlotte Douglas International\tAmerican Airlines Inc.: AA\n2019-04-26\tProvidence, RI: Theodore Francis Green State\tCharlotte, NC: Charlotte Douglas International\tAmerican Airlines Inc.: AA\n2019-04-28\tProvidence, RI: Theodore Francis Green State\tCharlotte, NC: Charlotte Douglas International\tAmerican Airlines Inc.: AA\n2019-04-29\tProvidence, RI: Theodore Francis Green State\tCharlotte, NC: Charlotte Douglas International\tAmerican Airlines Inc.: AA\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=47",
+              "$$hashKey": "object:2700"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1604859710974_1262440834",
+      "id": "paragraph_1604859710974_1262440834",
+      "dateCreated": "2020-11-08T18:21:50+0000",
+      "dateStarted": "2020-11-08T18:39:39+0000",
+      "dateFinished": "2020-11-08T18:39:40+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:254"
+    },
+    {
+      "title": "Warmup : Total Flights Monthly Variation ",
+      "text": "%sql\nSELECT Month, count(*) FROM AIR_DATA group by Month Order by Month",
+      "user": "anonymous",
+      "dateUpdated": "2020-11-08T21:15:07+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "Month": "string",
+                      "count(1)": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "Month",
+                  "index": 0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "count(1)",
+                  "index": 1,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql",
+        "tableHide": false,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "Month\tcount(1)\n1\t583985\n2\t533175\n3\t632074\n4\t612023\n5\t636390\n6\t636691\n7\t659029\n8\t658461\n9\t605979\n10\t636014\n11\t602453\n12\t625763\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=79",
+              "$$hashKey": "object:2746"
+            },
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=80",
+              "$$hashKey": "object:2747"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1604857268648_644334729",
+      "id": "paragraph_1604857268648_644334729",
+      "dateCreated": "2020-11-08T17:41:08+0000",
+      "dateStarted": "2020-11-08T19:09:54+0000",
+      "dateFinished": "2020-11-08T19:09:56+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:255"
+    },
+    {
+      "title": "Which cities are mosty Flyed From (Origin)",
+      "text": "%sql\n\nSELECT OriginCityName, count(*) as count FROM AIR_DATA group by OriginCityName Order by count desc limit 50\n",
+      "user": "anonymous",
+      "dateUpdated": "2020-11-08T21:19:21+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "OriginCityName": "string",
+                      "count": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "OriginCityName",
+                  "index": 0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "count",
+                  "index": 1,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql",
+        "tableHide": false,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "OriginCityName\tcount\nChicago, IL\t423369\nAtlanta, GA\t395009\nDallas/Fort Worth, TX\t304344\nNew York, NY\t298810\nDenver, CO\t252026\nHouston, TX\t240103\nCharlotte, NC\t235496\nLos Angeles, CA\t219952\nWashington, DC\t208611\nPhoenix, AZ\t181042\nSan Francisco, CA\t170918\nLas Vegas, NV\t164020\nDetroit, MI\t161768\nMinneapolis, MN\t160960\nBoston, MA\t150564\nOrlando, FL\t143094\nSeattle, WA\t142857\nNewark, NJ\t136081\nPhiladelphia, PA\t119151\nSalt Lake City, UT\t115130\nBaltimore, MD\t104652\nFort Lauderdale, FL\t98409\nSan Diego, CA\t93470\nMiami, FL\t89214\nNashville, TN\t82654\nTampa, FL\t76599\nDallas, TX\t73907\nSt. Louis, MO\t68401\nAustin, TX\t66811\nRaleigh/Durham, NC\t64156\nSan Jose, CA\t62946\nPortland, OR\t62441\nNew Orleans, LA\t58164\nKansas City, MO\t54942\nOakland, CA\t53069\nHonolulu, HI\t52139\nSacramento, CA\t51482\nPittsburgh, PA\t50401\nCleveland, OH\t49615\nIndianapolis, IN\t49135\nColumbus, OH\t48932\nCincinnati, OH\t48247\nSanta Ana, CA\t40754\nSan Antonio, TX\t40717\nFort Myers, FL\t34479\nJacksonville, FL\t33932\nBurbank, CA\t31905\nMilwaukee, WI\t30895\nHartford, CT\t28700\nKahului, HI\t27326\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=91",
+              "$$hashKey": "object:2797"
+            },
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=92",
+              "$$hashKey": "object:2798"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1604862903569_-531526854",
+      "id": "paragraph_1604862903569_-531526854",
+      "dateCreated": "2020-11-08T19:15:03+0000",
+      "dateStarted": "2020-11-08T19:17:26+0000",
+      "dateFinished": "2020-11-08T19:17:28+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:256"
+    },
+    {
+      "text": "%sql\nSELECT OriginCityName, count(*) as count FROM AIR_DATA group by OriginCityName Order by count desc limit 50",
+      "user": "anonymous",
+      "dateUpdated": "2020-11-08T20:46:23+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "OriginCityName": "string",
+                      "count": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default",
+                  "stacked": false
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "OriginCityName",
+                  "index": 0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "count",
+                  "index": 1,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql",
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "OriginCityName\tcount\nChicago, IL\t423369\nAtlanta, GA\t395009\nDallas/Fort Worth, TX\t304344\nNew York, NY\t298810\nDenver, CO\t252026\nHouston, TX\t240103\nCharlotte, NC\t235496\nLos Angeles, CA\t219952\nWashington, DC\t208611\nPhoenix, AZ\t181042\nSan Francisco, CA\t170918\nLas Vegas, NV\t164020\nDetroit, MI\t161768\nMinneapolis, MN\t160960\nBoston, MA\t150564\nOrlando, FL\t143094\nSeattle, WA\t142857\nNewark, NJ\t136081\nPhiladelphia, PA\t119151\nSalt Lake City, UT\t115130\nBaltimore, MD\t104652\nFort Lauderdale, FL\t98409\nSan Diego, CA\t93470\nMiami, FL\t89214\nNashville, TN\t82654\nTampa, FL\t76599\nDallas, TX\t73907\nSt. Louis, MO\t68401\nAustin, TX\t66811\nRaleigh/Durham, NC\t64156\nSan Jose, CA\t62946\nPortland, OR\t62441\nNew Orleans, LA\t58164\nKansas City, MO\t54942\nOakland, CA\t53069\nHonolulu, HI\t52139\nSacramento, CA\t51482\nPittsburgh, PA\t50401\nCleveland, OH\t49615\nIndianapolis, IN\t49135\nColumbus, OH\t48932\nCincinnati, OH\t48247\nSanta Ana, CA\t40754\nSan Antonio, TX\t40717\nFort Myers, FL\t34479\nJacksonville, FL\t33932\nBurbank, CA\t31905\nMilwaukee, WI\t30895\nHartford, CT\t28700\nKahului, HI\t27326\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=89",
+              "$$hashKey": "object:2848"
+            },
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=90",
+              "$$hashKey": "object:2849"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1604857269434_-1080414576",
+      "id": "paragraph_1604857269434_-1080414576",
+      "dateCreated": "2020-11-08T17:41:09+0000",
+      "dateStarted": "2020-11-08T19:16:25+0000",
+      "dateFinished": "2020-11-08T19:16:36+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:257"
+    },
+    {
+      "text": "%sql\n\nSELECT DestCityName, count(*) as count FROM AIR_DATA group by DestCityName Order by count desc limit 50\n",
+      "user": "anonymous",
+      "dateUpdated": "2020-11-08T21:17:35+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "DestCityName": "string",
+                      "count": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "DestCityName\tcount\nChicago, IL\t423330\nAtlanta, GA\t395026\nDallas/Fort Worth, TX\t304346\nNew York, NY\t298795\nDenver, CO\t252064\nHouston, TX\t240096\nCharlotte, NC\t235490\nLos Angeles, CA\t219996\nWashington, DC\t208555\nPhoenix, AZ\t181064\nSan Francisco, CA\t170966\nLas Vegas, NV\t164043\nDetroit, MI\t161741\nMinneapolis, MN\t160955\nBoston, MA\t150554\nOrlando, FL\t143095\nSeattle, WA\t142841\nNewark, NJ\t136124\nPhiladelphia, PA\t119154\nSalt Lake City, UT\t115252\nBaltimore, MD\t104659\nFort Lauderdale, FL\t98426\nSan Diego, CA\t93484\nMiami, FL\t89195\nNashville, TN\t82656\nTampa, FL\t76601\nDallas, TX\t73936\nSt. Louis, MO\t68402\nAustin, TX\t66819\nRaleigh/Durham, NC\t64157\nSan Jose, CA\t62777\nPortland, OR\t62444\nNew Orleans, LA\t58167\nKansas City, MO\t54964\nOakland, CA\t53023\nHonolulu, HI\t52141\nSacramento, CA\t51484\nPittsburgh, PA\t50399\nCleveland, OH\t49613\nIndianapolis, IN\t49132\nColumbus, OH\t48933\nCincinnati, OH\t48247\nSanta Ana, CA\t40802\nSan Antonio, TX\t40725\nFort Myers, FL\t34472\nJacksonville, FL\t33939\nBurbank, CA\t31907\nMilwaukee, WI\t30893\nHartford, CT\t28701\nKahului, HI\t27323\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=168",
+              "$$hashKey": "object:2899"
+            },
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=169",
+              "$$hashKey": "object:2900"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1604870134938_-719447485",
+      "id": "paragraph_1604870134938_-719447485",
+      "dateCreated": "2020-11-08T21:15:34+0000",
+      "dateStarted": "2020-11-08T21:17:22+0000",
+      "dateFinished": "2020-11-08T21:17:33+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:258"
+    },
+    {
+      "title": "Which cities are mosty Flyed To (Destination)",
+      "text": "%sql\n\nSELECT DestCityName, count(*) as count FROM AIR_DATA group by DestCityName Order by count desc limit 50\n",
+      "user": "anonymous",
+      "dateUpdated": "2020-11-08T21:19:35+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "DestCityName": "string",
+                      "count": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "DestCityName",
+                  "index": 0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "count",
+                  "index": 1,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql",
+        "editorHide": false,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "DestCityName\tcount\nChicago, IL\t423330\nAtlanta, GA\t395026\nDallas/Fort Worth, TX\t304346\nNew York, NY\t298795\nDenver, CO\t252064\nHouston, TX\t240096\nCharlotte, NC\t235490\nLos Angeles, CA\t219996\nWashington, DC\t208555\nPhoenix, AZ\t181064\nSan Francisco, CA\t170966\nLas Vegas, NV\t164043\nDetroit, MI\t161741\nMinneapolis, MN\t160955\nBoston, MA\t150554\nOrlando, FL\t143095\nSeattle, WA\t142841\nNewark, NJ\t136124\nPhiladelphia, PA\t119154\nSalt Lake City, UT\t115252\nBaltimore, MD\t104659\nFort Lauderdale, FL\t98426\nSan Diego, CA\t93484\nMiami, FL\t89195\nNashville, TN\t82656\nTampa, FL\t76601\nDallas, TX\t73936\nSt. Louis, MO\t68402\nAustin, TX\t66819\nRaleigh/Durham, NC\t64157\nSan Jose, CA\t62777\nPortland, OR\t62444\nNew Orleans, LA\t58167\nKansas City, MO\t54964\nOakland, CA\t53023\nHonolulu, HI\t52141\nSacramento, CA\t51484\nPittsburgh, PA\t50399\nCleveland, OH\t49613\nIndianapolis, IN\t49132\nColumbus, OH\t48933\nCincinnati, OH\t48247\nSanta Ana, CA\t40802\nSan Antonio, TX\t40725\nFort Myers, FL\t34472\nJacksonville, FL\t33939\nBurbank, CA\t31907\nMilwaukee, WI\t30893\nHartford, CT\t28701\nKahului, HI\t27323\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=170",
+              "$$hashKey": "object:2950"
+            },
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=171",
+              "$$hashKey": "object:2951"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1604870275198_-1063816736",
+      "id": "paragraph_1604870275198_-1063816736",
+      "dateCreated": "2020-11-08T21:17:55+0000",
+      "dateStarted": "2020-11-08T21:18:02+0000",
+      "dateFinished": "2020-11-08T21:18:03+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:259"
+    },
+    {
+      "title": "Let's Look at the most Active Airlines",
+      "text": "%sql\nSELECT AIR_DATA.Reporting_Airline,count(*) as count \nFROM AIR_DATA\ngroup by  AIR_DATA.Reporting_Airline Order by count desc limit 50\n",
+      "user": "anonymous",
+      "dateUpdated": "2020-11-08T21:22:28+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "Reporting_Airline": "string",
+                      "count": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "Reporting_Airline",
+                  "index": 0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "count",
+                  "index": 1,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql",
+        "tableHide": false,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "Reporting_Airline\tcount\nWN\t1363946\nDL\t991986\nAA\t946776\nOO\t836445\nUA\t625910\nYX\t329149\nMQ\t327007\nB6\t297411\nOH\t289304\nAS\t264816\n9E\t257132\nYV\t227888\nNK\t204845\nF9\t135543\nEV\t134683\nG4\t105305\nHA\t83891\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=101",
+              "$$hashKey": "object:3001"
+            },
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=102",
+              "$$hashKey": "object:3002"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1604857272636_-745649584",
+      "id": "paragraph_1604857272636_-745649584",
+      "dateCreated": "2020-11-08T17:41:12+0000",
+      "dateStarted": "2020-11-08T19:36:03+0000",
+      "dateFinished": "2020-11-08T19:36:07+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:260"
+    },
+    {
+      "title": "We need Airline Names... Is this ref DF ok ?",
+      "text": "%pyspark\npprint(REF_AIRLINE.columns)\n",
+      "user": "anonymous",
+      "dateUpdated": "2020-11-08T21:23:58+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "tableHide": false,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "['Code', 'Description']\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1604863658564_-505199396",
+      "id": "paragraph_1604863658564_-505199396",
+      "dateCreated": "2020-11-08T19:27:38+0000",
+      "dateStarted": "2020-11-08T19:29:34+0000",
+      "dateFinished": "2020-11-08T19:29:34+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:261"
+    },
+    {
+      "title": "Not Really Actually...",
+      "text": "%sql\nSELECT * from AIRLINE LIMIT 100",
+      "user": "anonymous",
+      "dateUpdated": "2020-11-08T21:20:54+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "Code": "string",
+                      "Description": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql",
+        "tableHide": false,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "Code\tDescription\n19031\tMackey International Inc.: MAC\n19032\tMunz Northern Airlines Inc.: XY\n19033\tCochise Airlines Inc.: COC\n19034\tGolden Gate Airlines Inc.: GSA\n19035\tAeromech Inc.: RZZ\n19036\tGolden West Airlines Co.: GLW\n19037\tPuerto Rico Intl Airlines: PRN\n19038\tAir America Inc.: STZ\n19039\tSwift Aire Lines Inc.: SWT\n19040\tAmerican Central Airlines: TSF\n19041\tValdez Airlines: VEZ\n19042\tSoutheast Alaska Airlines: WEB\n19043\tAltair Airlines Inc.: AAR\n19044\tChitina Air Service: CHI\n19045\tMarco Island Airways Inc.: MRC\n19046\tCaribbean Air Services Inc.: OHZ\n19047\tSundance Airlines: PRO\n19048\tSeair Alaska Airlines Inc.: SAI\n19049\tSoutheast Airlines Inc.: SLZ\n19050\tAlaska Aeronautical Indust.: AAZ\n19051\tImperial Airlines Inc.: IMP\n19052\tTrans Western Airlines Utah: TWA\n19053\tWright Airlines Inc.: WRT\n19054\tPresidential Express: COL\n19055\tMississippi Valley Airlines: MVA\n19056\tChannel Flying Inc.: CHL\n19057\tRocky Mountain Airways Inc.: JCZ\n19058\tMidstate Airlines Inc.: MIS\n19059\tSedalia Marshall Boonvl Stg: STG\n19060\tInlet Airlines: CKI\n19061\tCommand Airways Inc.: CMD\n19062\tEmerald Airlines: EMA\n19063\tOrion Air Inc.: ORI\n19064\tPan Am Express: RAN\n19065\tAir Micronesia Inc.: AJ\n19066\tSunbird Inc.: SKI\n19067\tWings West Airlines: WWI\n19068\tSouthcentral Air Inc.: AND\n19069\tAir Cargo Express Inc.: ACG\n19070\tAssociated Aviation Act.: AAA\n19071\tAntilles Air Boats Inc.: AAB (1)\n19072\tAAA Airlines: AAE\n19073\tArgosy Air Lines Inc.: AAL\n19074\tAir Bahia: ABH\n19075\tAirbama Incorporated: ABI\n19076\tAeronaves Boringuena Inc.: ABO\n19077\tAlaska Central Airways Inc.: ACA\n19078\tIsland Airlines Hawaii Inc.: ACH\n19079\tAAA-Action Air Carrier Inc.: ACI\n19080\tAir Cargo Enterprises Inc.: ACO\n19081\tAir Chaparral Inc.: ACP\n19082\tAlamo Commuter Airlines: ACS\n19083\tAir Central Inc. (1): ACT\n19084\tAir Central Inc.: ACK\n19085\tAstec Air East Inc.: AEC\n19086\tAmerican Flag Airlines Inc.: AFA\n19087\tAir Cargo America Inc.: AGA\n19088\tAll Island Air: AIA\n19089\tAir Express Inc.: AIE\n19090\tAir Mont. Inc.: AIM\n19091\tAir Indiana: AIN\n19092\tAir-Lift Associates Inc.: ALE\n19093\tBrandt Air: ALI\n19094\tAll Seasons Air Pacific: ALL\n19095\tNorth American Airlines Inc.: AMA\n19096\tAmerican Inter-Island Inc.: AMI\n19097\tAir Nebraska Inc.: ANB\n19098\tAirways Of New Mexico Inc.: ANM\n19099\tMetro Air Northeast Vermont: ANO\n19100\tAir North/Nenana: ANT\n19101\tTrans New York: AOI\n19102\tArizona Pacific Inc.: API\n19103\tAppalachian Flying Service: APL\n19104\tAir Polynesia Inc.: APY\n19105\tArizona Aero Corp.: ARI\n19106\tArnold Aviation: ARN\n19107\tAir Oregon: ARO\n19108\tArrowhead Airways Inc.: ARR\n19109\tAmistad Airlines: ASD\n19110\tAlpine Air Services Inc.: ASI\n19111\tAsap Air Inc.: ASP\n19112\tAstro Airways: AST\n19113\tAir Atlantic Airlines Inc.: ATN\n19114\tPacific National Airways: ATO\n19115\tAtlantis Airlines Inc.: ATS\n19116\tAerotransit Inc.: ATT\n19117\tAir Carolina: ATX\n19118\tAir Vectors Airways: AVA\n19119\tAero Virgin Islands Corp.: AVI\n19120\tAviation Services: AVS\n19121\tSouthern Jersey Airways: AVZ\n19122\tBusiness Aircraft Corp.: BAC\n19123\tBrennan & Hargreaves Inc.: BAH\n19124\tBankair Inc.: BAK\n19125\tBard-Air Corp.: BAR\n19126\tBaja Cortez Airlines: BCA\n19127\tBennington Aviation Inc.: BEN\n19128\tBeyer Aviation: BEY\n19129\tBlackhawk Airways Inc.: BHK\n19130\tBighorn Airways Inc.: BHO\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=160",
+              "$$hashKey": "object:3092"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1604864541410_1899749601",
+      "id": "paragraph_1604864541410_1899749601",
+      "dateCreated": "2020-11-08T19:42:21+0000",
+      "dateStarted": "2020-11-08T20:47:11+0000",
+      "dateFinished": "2020-11-08T20:47:19+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:262"
+    },
+    {
+      "title": "This One looks much better : Let's load it",
+      "text": "%pyspark\nCARRIER = spark.read.option(\"inferSchema\",True).option(\"header\",True).csv(\"/user/root/data/BOTS_REF/CSV/UNIQUE_CARRIERS.csv\") \nCARRIER.write.parquet(\"/user/root/data/BOTS_REF/PARQUET/CARRIERS.parquet\")\nCARRIER = spark.read.parquet(\"/user/root/data/BOTS_REF/PARQUET/CARRIERS.parquet\")\nCARRIER.write.saveAsTable(\"CARRIER\")",
+      "user": "anonymous",
+      "dateUpdated": "2020-11-08T21:22:47+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "tableHide": false,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=110",
+              "$$hashKey": "object:3138"
+            },
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=111",
+              "$$hashKey": "object:3139"
+            },
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=112",
+              "$$hashKey": "object:3140"
+            },
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=113",
+              "$$hashKey": "object:3141"
+            },
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=114",
+              "$$hashKey": "object:3142"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1604864660131_522323660",
+      "id": "paragraph_1604864660131_522323660",
+      "dateCreated": "2020-11-08T19:44:20+0000",
+      "dateStarted": "2020-11-08T19:48:39+0000",
+      "dateFinished": "2020-11-08T19:48:51+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:263"
+    },
+    {
+      "title": "Let's Display a Nice pie Chart of the most Active Airlines",
+      "text": "%sql\nSELECT CARRIER.Description, QUERY.count\nFROM (SELECT AIR_DATA.Reporting_Airline,count(*) as count\nFROM AIR_DATA\ngroup by  AIR_DATA.Reporting_Airline Order by count desc) AS QUERY, \nCARRIER\nwhere  QUERY.Reporting_Airline = CARRIER.code \nOrder by count desc\n",
+      "user": "anonymous",
+      "dateUpdated": "2020-11-08T21:25:32+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "pieChart",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "Description": "string",
+                      "count": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "Description",
+                  "index": 0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "count",
+                  "index": 1,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql",
+        "tableHide": false,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "Description\tcount\nSouthwest Airlines Co.\t1363946\nDelta Air Lines Inc.\t991986\nAmerican Airlines Inc.\t946776\nSkyWest Airlines Inc.\t836445\nUnited Air Lines Inc.\t625910\nRepublic Airline\t329149\nEnvoy Air\t327007\nJetBlue Airways\t297411\nPSA Airlines Inc.\t289304\nAlaska Airlines Inc.\t264816\nEndeavor Air Inc.\t257132\nMesa Airlines Inc.\t227888\nSpirit Air Lines\t204845\nFrontier Airlines Inc.\t135543\nExpressJet Airlines LLC\t134683\nAllegiant Air\t105305\nHawaiian Airlines Inc.\t83891\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=172",
+              "$$hashKey": "object:3204"
+            },
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=174",
+              "$$hashKey": "object:3205"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1604857272502_437500901",
+      "id": "paragraph_1604857272502_437500901",
+      "dateCreated": "2020-11-08T17:41:12+0000",
+      "dateStarted": "2020-11-08T21:24:32+0000",
+      "dateFinished": "2020-11-08T21:24:43+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:264"
+    },
+    {
+      "title": "What about Cancellations ?",
+      "text": "%pyspark\nCANCEL = spark.read.option(\"inferSchema\",True).option(\"header\",True).csv(\"/user/root/data/BOTS_REF/CSV/CANCELLATION.csv\") \nz.show(CANCEL)",
+      "user": "anonymous",
+      "dateUpdated": "2020-11-08T21:25:50+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "Code": "string",
+                      "Description": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "tableHide": false,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "Code\tDescription\nA\tCarrier\nB\tWeather\nC\tNational Air System\nD\tSecurity\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=124",
+              "$$hashKey": "object:3255"
+            },
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=125",
+              "$$hashKey": "object:3256"
+            },
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=126",
+              "$$hashKey": "object:3257"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1604857269213_999349039",
+      "id": "paragraph_1604857269213_999349039",
+      "dateCreated": "2020-11-08T17:41:09+0000",
+      "dateStarted": "2020-11-08T19:59:43+0000",
+      "dateFinished": "2020-11-08T19:59:52+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:265"
+    },
+    {
+      "text": "%sql\nSELECT CancellationCode, count(*) from AIR_DATA where Cancelled = 1 group by CancellationCode order by CancellationCode",
+      "user": "anonymous",
+      "dateUpdated": "2020-11-08T21:34:10+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "CancellationCode": "string",
+                      "count(1)": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "CancellationCode\tcount(1)\nA\t37854\nB\t72277\nC\t24775\nD\t19\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=175",
+              "$$hashKey": "object:3311"
+            },
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=176",
+              "$$hashKey": "object:3312"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1604870768053_417240536",
+      "id": "paragraph_1604870768053_417240536",
+      "dateCreated": "2020-11-08T21:26:08+0000",
+      "dateStarted": "2020-11-08T21:33:57+0000",
+      "dateFinished": "2020-11-08T21:34:08+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:266"
+    },
+    {
+      "title": "That would be better with labels. Let's perform a join",
+      "text": "%pyspark\nCANCEL_GROUP = spark.sql(\"SELECT CancellationCode, count(*) from AIR_DATA where Cancelled = 1 group by CancellationCode order by CancellationCode\")\nCANCEL_JOIN = CANCEL_GROUP.join(CANCEL,CANCEL.Code == CANCEL_GROUP.CancellationCode).drop(CANCEL_GROUP.CancellationCode).drop(CANCEL.Code)\nz.show(CANCEL_JOIN)",
+      "user": "anonymous",
+      "dateUpdated": "2020-11-08T21:42:49+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "pieChart": {},
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "count(1)": "string",
+                      "Description": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "Description",
+                  "index": 1,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "count(1)",
+                  "index": 0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "editorHide": false,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "count(1)\tDescription\n19\tSecurity\n72277\tWeather\n24775\tNational Air System\n37854\tCarrier\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=182",
+              "$$hashKey": "object:3362"
+            },
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=184",
+              "$$hashKey": "object:3363"
+            },
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=185",
+              "$$hashKey": "object:3364"
+            },
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=186",
+              "$$hashKey": "object:3365"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1604871679723_1141972309",
+      "id": "paragraph_1604871679723_1141972309",
+      "dateCreated": "2020-11-08T21:41:19+0000",
+      "dateStarted": "2020-11-08T21:41:43+0000",
+      "dateFinished": "2020-11-08T21:41:53+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:267"
+    },
+    {
+      "title": "Even better with a pie Chart",
+      "text": "%pyspark\nCANCEL_GROUP = spark.sql(\"SELECT CancellationCode, count(*) from AIR_DATA where Cancelled = 1 group by CancellationCode order by CancellationCode\")\nCANCEL_JOIN = CANCEL_GROUP.join(CANCEL,CANCEL.Code == CANCEL_GROUP.CancellationCode).drop(CANCEL_GROUP.CancellationCode).drop(CANCEL.Code)\nz.show(CANCEL_JOIN)",
+      "user": "anonymous",
+      "dateUpdated": "2020-11-08T21:43:24+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "pieChart",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "pieChart": {}
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "Description",
+                  "index": 1,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "count(1)",
+                  "index": 0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "count(1)\tDescription\n19\tSecurity\n72277\tWeather\n24775\tNational Air System\n37854\tCarrier\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=178",
+              "$$hashKey": "object:3423"
+            },
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=179",
+              "$$hashKey": "object:3424"
+            },
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=180",
+              "$$hashKey": "object:3425"
+            },
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=181",
+              "$$hashKey": "object:3426"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1604871255321_-657469444",
+      "id": "paragraph_1604871255321_-657469444",
+      "dateCreated": "2020-11-08T21:34:15+0000",
+      "dateStarted": "2020-11-08T21:40:09+0000",
+      "dateFinished": "2020-11-08T21:40:19+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:268"
+    },
+    {
+      "title": "Which Months induce more Cancellation due to Weather ?",
+      "text": "%sql\nSELECT Month, count(*) from AIR_DATA where CancellationCode = 'B' group by Month order by Month",
+      "user": "anonymous",
+      "dateUpdated": "2020-11-08T21:27:40+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "Month": "string",
+                      "count(1)": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "Month",
+                  "index": 0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "count(1)",
+                  "index": 1,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql",
+        "tableHide": false,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "Month\tcount(1)\n1\t11900\n2\t9687\n3\t5048\n4\t8438\n5\t6232\n6\t5955\n7\t5460\n8\t4519\n9\t6706\n10\t2473\n11\t2704\n12\t3155\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=129",
+              "$$hashKey": "object:3484"
+            },
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=130",
+              "$$hashKey": "object:3485"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1604865624333_-972429666",
+      "id": "paragraph_1604865624333_-972429666",
+      "dateCreated": "2020-11-08T20:00:24+0000",
+      "dateStarted": "2020-11-08T20:01:55+0000",
+      "dateFinished": "2020-11-08T20:01:57+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:269"
+    },
+    {
+      "title": "What about combining SQL Results ?",
+      "text": "",
+      "user": "anonymous",
+      "dateUpdated": "2020-11-08T21:44:16+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1604871804159_-552346211",
+      "id": "paragraph_1604871804159_-552346211",
+      "dateCreated": "2020-11-08T21:43:24+0000",
+      "status": "READY",
+      "$$hashKey": "object:270"
+    },
+    {
+      "title": "Which carriers have the most cancellations ?",
+      "text": "%sql\nSELECT CARRIER.Description, QUERY.count\nFROM (SELECT  Reporting_Airline,count(*) as count\nFROM AIR_DATA\nwhere Cancelled=1\ngroup by  AIR_DATA.Reporting_Airline Order by count desc) AS QUERY, \nCARRIER\nwhere  QUERY.Reporting_Airline = CARRIER.code \nOrder by count desc",
+      "user": "anonymous",
+      "dateUpdated": "2020-11-08T21:28:20+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "Description": "string",
+                      "count": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "Description",
+                  "index": 0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "count",
+                  "index": 1,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql",
+        "tableHide": false,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "Description\tcount\nSouthwest Airlines Co.\t33622\nAmerican Airlines Inc.\t20151\nSkyWest Airlines Inc.\t17453\nEnvoy Air\t11430\nRepublic Airline\t7692\nPSA Airlines Inc.\t6826\nMesa Airlines Inc.\t6709\nExpressJet Airlines LLC\t6086\nUnited Air Lines Inc.\t5384\nEndeavor Air Inc.\t4257\nJetBlue Airways\t3764\nSpirit Air Lines\t3590\nAlaska Airlines Inc.\t3077\nFrontier Airlines Inc.\t2281\nDelta Air Lines Inc.\t1842\nAllegiant Air\t624\nHawaiian Airlines Inc.\t137\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=131",
+              "$$hashKey": "object:3575"
+            },
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=133",
+              "$$hashKey": "object:3576"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1604865622353_-1185098049",
+      "id": "paragraph_1604865622353_-1185098049",
+      "dateCreated": "2020-11-08T20:00:22+0000",
+      "dateStarted": "2020-11-08T20:07:38+0000",
+      "dateFinished": "2020-11-08T20:07:49+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:271"
+    },
+    {
+      "title": "We might need to refine that : A cancellation ratio would me more accurate ",
+      "text": "",
+      "user": "anonymous",
+      "dateUpdated": "2020-11-08T21:32:34+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1604871082732_-852211921",
+      "id": "paragraph_1604871082732_-852211921",
+      "dateCreated": "2020-11-08T21:31:22+0000",
+      "status": "READY",
+      "$$hashKey": "object:272"
+    },
+    {
+      "title": "Let's group by Total Flight Count per Carrier",
+      "text": "%pyspark\n\nCARRIERS_FLIGHT_COUNT_DF = spark.sql(\"SELECT CARRIER.Code, CARRIER.Description, QUERY.count FROM (SELECT AIR_DATA.Reporting_Airline,count(*) as count FROM AIR_DATA group by  AIR_DATA.Reporting_Airline Order by count desc) AS QUERY, CARRIER where  QUERY.Reporting_Airline = CARRIER.code Order by count desc\")\n\nCARRIERS_FLIGHT_COUNT_DF = CARRIERS_FLIGHT_COUNT_DF.withColumnRenamed(\"count\",\"fcount\")\n\n\nCARRIERS_FLIGHT_COUNT_DF.columns",
+      "user": "anonymous",
+      "dateUpdated": "2020-11-08T21:32:31+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "tableHide": false,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "['Code', 'Description', 'fcount']\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1604857273033_667940332",
+      "id": "paragraph_1604857273033_667940332",
+      "dateCreated": "2020-11-08T17:41:13+0000",
+      "dateStarted": "2020-11-08T20:18:45+0000",
+      "dateFinished": "2020-11-08T20:18:45+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:273"
+    },
+    {
+      "title": "Let's group by Cancellation Count per Carrier",
+      "text": "%pyspark\nCARRIERS_CANCELLED_COUNT_DF = spark.sql(\"SELECT CARRIER.Code, CARRIER.Description, QUERY.count FROM (SELECT  Reporting_Airline,count(*) as count FROM AIR_DATA where Cancelled=1 group by  AIR_DATA.Reporting_Airline Order by count desc) AS QUERY, CARRIER where  QUERY.Reporting_Airline = CARRIER.code  Order by count desc\")\n\nCARRIERS_CANCELLED_COUNT_DF = CARRIERS_CANCELLED_COUNT_DF.withColumnRenamed(\"count\",\"ccount\")\n\nCARRIERS_CANCELLED_COUNT_DF.columns",
+      "user": "anonymous",
+      "dateUpdated": "2020-11-08T21:29:41+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "tableHide": false,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "['Code', 'Description', 'ccount']\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1604857272888_1714260478",
+      "id": "paragraph_1604857272888_1714260478",
+      "dateCreated": "2020-11-08T17:41:12+0000",
+      "dateStarted": "2020-11-08T20:38:15+0000",
+      "dateFinished": "2020-11-08T20:38:16+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:274"
+    },
+    {
+      "title": "Combining SQL Syntax & DF Syntax can be very handy here : ",
+      "text": "",
+      "user": "anonymous",
+      "dateUpdated": "2020-11-08T21:45:06+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala",
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1604871872978_1298394098",
+      "id": "paragraph_1604871872978_1298394098",
+      "dateCreated": "2020-11-08T21:44:32+0000",
+      "status": "READY",
+      "$$hashKey": "object:275"
+    },
+    {
+      "title": "Let's join Cancellations and Total Flights per Carrier",
+      "text": "%pyspark\n\nCARRIERS_FLIGHT_CANCEL_JOIN_DF = CARRIERS_FLIGHT_COUNT_DF.join(CARRIERS_CANCELLED_COUNT_DF, CARRIERS_FLIGHT_COUNT_DF.Code == CARRIERS_CANCELLED_COUNT_DF.Code).drop(CARRIERS_CANCELLED_COUNT_DF.Description).drop(CARRIERS_CANCELLED_COUNT_DF.Code)\n\nCARRIERS_FLIGHT_CANCEL_JOIN_DF.columns",
+      "user": "anonymous",
+      "dateUpdated": "2020-11-08T21:30:18+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "tableHide": false,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "['fcount', 'Code', 'Description', 'ccount']\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1604857273620_-1714390471",
+      "id": "paragraph_1604857273620_-1714390471",
+      "dateCreated": "2020-11-08T17:41:13+0000",
+      "dateStarted": "2020-11-08T20:38:44+0000",
+      "dateFinished": "2020-11-08T20:38:44+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:276"
+    },
+    {
+      "title": "Let's Calculate a ratio by using 'expr'",
+      "text": "%pyspark\nfrom pyspark.sql.functions import expr, desc\nCARRIER_CANCEL_RATIO_DF = CARRIERS_FLIGHT_CANCEL_JOIN_DF.withColumn('ratio', expr('ccount / fcount')).orderBy(desc('ratio'))\nz.show(CARRIER_CANCEL_RATIO_DF)",
+      "user": "anonymous",
+      "dateUpdated": "2020-11-08T21:30:49+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "rotate"
+                },
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "fcount": "string",
+                      "Code": "string",
+                      "Description": "string",
+                      "ccount": "string",
+                      "ratio": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "Description",
+                  "index": 2,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "ratio",
+                  "index": 4,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "tableHide": false,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "fcount\tCode\tDescription\tccount\tratio\n134683\tEV\tExpressJet Airlines LLC\t6086\t0.04518758863405181\n327007\tMQ\tEnvoy Air\t11430\t0.034953380202870275\n227888\tYV\tMesa Airlines Inc.\t6709\t0.02943990030190269\n1363946\tWN\tSouthwest Airlines Co.\t33622\t0.024650536018288115\n289304\tOH\tPSA Airlines Inc.\t6826\t0.023594557973619444\n329149\tYX\tRepublic Airline\t7692\t0.023369355519840557\n946776\tAA\tAmerican Airlines Inc.\t20151\t0.021283809475525363\n836445\tOO\tSkyWest Airlines Inc.\t17453\t0.020865687522789902\n204845\tNK\tSpirit Air Lines\t3590\t0.017525446068978986\n135543\tF9\tFrontier Airlines Inc.\t2281\t0.016828607895649352\n257132\t9E\tEndeavor Air Inc.\t4257\t0.016555699018402998\n297411\tB6\tJetBlue Airways\t3764\t0.012655886971228367\n264816\tAS\tAlaska Airlines Inc.\t3077\t0.011619388556582684\n625910\tUA\tUnited Air Lines Inc.\t5384\t0.008601875669025899\n105305\tG4\tAllegiant Air\t624\t0.005925644556288875\n991986\tDL\tDelta Air Lines Inc.\t1842\t0.001856881044692163\n83891\tHA\tHawaiian Airlines Inc.\t137\t0.0016330714856182427\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=151",
+              "$$hashKey": "object:3826"
+            },
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=152",
+              "$$hashKey": "object:3827"
+            },
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=155",
+              "$$hashKey": "object:3828"
+            },
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=156",
+              "$$hashKey": "object:3829"
+            },
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=157",
+              "$$hashKey": "object:3830"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1604857273465_-1804577994",
+      "id": "paragraph_1604857273465_-1804577994",
+      "dateCreated": "2020-11-08T17:41:13+0000",
+      "dateStarted": "2020-11-08T20:39:19+0000",
+      "dateFinished": "2020-11-08T20:39:32+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:277"
+    },
+    {
+      "text": "%pyspark\nfrom pyspark.sql.functions import expr, desc\nCARRIER_CANCEL_RATIO_DF = CARRIERS_FLIGHT_CANCEL_JOIN_DF.withColumn('ratio', expr('ccount / fcount')).orderBy(desc('ratio'))\nz.show(CARRIER_CANCEL_RATIO_DF)",
+      "user": "anonymous",
+      "dateUpdated": "2020-11-08T20:49:39+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "Description",
+                  "index": 2,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "ratio",
+                  "index": 4,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python",
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "fcount\tCode\tDescription\tccount\tratio\n134683\tEV\tExpressJet Airlines LLC\t6086\t0.04518758863405181\n327007\tMQ\tEnvoy Air\t11430\t0.034953380202870275\n227888\tYV\tMesa Airlines Inc.\t6709\t0.02943990030190269\n1363946\tWN\tSouthwest Airlines Co.\t33622\t0.024650536018288115\n289304\tOH\tPSA Airlines Inc.\t6826\t0.023594557973619444\n329149\tYX\tRepublic Airline\t7692\t0.023369355519840557\n946776\tAA\tAmerican Airlines Inc.\t20151\t0.021283809475525363\n836445\tOO\tSkyWest Airlines Inc.\t17453\t0.020865687522789902\n204845\tNK\tSpirit Air Lines\t3590\t0.017525446068978986\n135543\tF9\tFrontier Airlines Inc.\t2281\t0.016828607895649352\n257132\t9E\tEndeavor Air Inc.\t4257\t0.016555699018402998\n297411\tB6\tJetBlue Airways\t3764\t0.012655886971228367\n264816\tAS\tAlaska Airlines Inc.\t3077\t0.011619388556582684\n625910\tUA\tUnited Air Lines Inc.\t5384\t0.008601875669025899\n105305\tG4\tAllegiant Air\t624\t0.005925644556288875\n991986\tDL\tDelta Air Lines Inc.\t1842\t0.001856881044692163\n83891\tHA\tHawaiian Airlines Inc.\t137\t0.0016330714856182427\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=161",
+              "$$hashKey": "object:3892"
+            },
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=163",
+              "$$hashKey": "object:3893"
+            },
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=165",
+              "$$hashKey": "object:3894"
+            },
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=166",
+              "$$hashKey": "object:3895"
+            },
+            {
+              "jobUrl": "http://ip-172-31-47-65.eu-west-3.compute.internal:4040/jobs/job?id=167",
+              "$$hashKey": "object:3896"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1604867398180_1050268263",
+      "id": "paragraph_1604867398180_1050268263",
+      "dateCreated": "2020-11-08T20:29:58+0000",
+      "dateStarted": "2020-11-08T20:48:53+0000",
+      "dateFinished": "2020-11-08T20:49:07+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:278"
+    }
+  ],
+  "name": "spark-sql-analytics",
+  "id": "2FQSZR12D",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.9.0-preview1",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false,
+    "looknfeel": "default",
+    "personalizedMode": "false"
+  },
+  "info": {
+    "isRunning": false
+  },
+  "path": "/spark-sql-analytics"
+}
