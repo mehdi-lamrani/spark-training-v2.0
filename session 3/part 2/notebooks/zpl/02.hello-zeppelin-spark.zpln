@@ -1,0 +1,413 @@
+﻿{
+  "paragraphs": [
+    {
+      "text": "print(\"hello world\")",
+      "user": "anonymous",
+      "dateUpdated": "2020-10-08T18:49:45+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "hello world"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1602152401471_1851459992",
+      "id": "paragraph_1602152401471_1851459992",
+      "dateCreated": "2020-10-08T10:20:01+0000",
+      "dateStarted": "2020-10-08T18:49:45+0000",
+      "dateFinished": "2020-10-08T18:49:45+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:478"
+    },
+    {
+      "text": "import matplotlib.pyplot as plt",
+      "user": "anonymous",
+      "dateUpdated": "2020-10-08T18:51:48+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "<console>:1: \u001b[31merror: \u001b[0m';' expected but identifier found.\n       import matplotlib.pyplot as plt\n                                ^\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1602182955665_-600721235",
+      "id": "paragraph_1602182955665_-600721235",
+      "dateCreated": "2020-10-08T18:49:15+0000",
+      "dateStarted": "2020-10-08T18:51:48+0000",
+      "dateFinished": "2020-10-08T18:51:48+0000",
+      "status": "ERROR",
+      "$$hashKey": "object:479"
+    },
+    {
+      "text": "%spark\nval df = spark.read.format(\"csv\").option(\"header\", \"true\").load(\"hdfs:///user/root/data/cities.csv\")",
+      "user": "anonymous",
+      "dateUpdated": "2020-10-15T08:16:18+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mdf\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m = [LatD: string,  \"LatM\": string ... 8 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1602749645568_1815624498",
+      "id": "paragraph_1602749645568_1815624498",
+      "dateCreated": "2020-10-15T08:14:05+0000",
+      "dateStarted": "2020-10-15T08:16:18+0000",
+      "dateFinished": "2020-10-15T08:16:19+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:480"
+    },
+    {
+      "text": "%pyspark\ndf = spark.read.format(\"csv\").option(\"header\", \"true\").load(\"hdfs:///user/root/data/cities.csv\")",
+      "user": "anonymous",
+      "dateUpdated": "2020-10-15T08:15:26+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1602152655268_-1856410049",
+      "id": "paragraph_1602152655268_-1856410049",
+      "dateCreated": "2020-10-08T10:24:15+0000",
+      "dateStarted": "2020-10-15T08:15:26+0000",
+      "dateFinished": "2020-10-15T08:16:02+0000",
+      "status": "ABORT",
+      "$$hashKey": "object:481"
+    },
+    {
+      "text": "%pyspark\ndf.show()",
+      "user": "anonymous",
+      "dateUpdated": "2020-10-08T11:26:14+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-----+-------+-------+-----+-------+-------+-------+-----+------------------+--------+\n| LatD| \"LatM\"| \"LatS\"| \"NS\"| \"LonD\"| \"LonM\"| \"LonS\"| \"EW\"|            \"City\"| \"State\"|\n+-----+-------+-------+-----+-------+-------+-------+-----+------------------+--------+\n|   41|      5|     59|  \"N\"|     80|     39|      0|  \"W\"|      \"Youngstown\"|      OH|\n|   42|     52|     48|  \"N\"|     97|     23|     23|  \"W\"|         \"Yankton\"|      SD|\n|   46|     35|     59|  \"N\"|    120|     30|     36|  \"W\"|          \"Yakima\"|      WA|\n|   42|     16|     12|  \"N\"|     71|     48|      0|  \"W\"|       \"Worcester\"|      MA|\n|   43|     37|     48|  \"N\"|     89|     46|     11|  \"W\"| \"Wisconsin Dells\"|      WI|\n|   36|      5|     59|  \"N\"|     80|     15|      0|  \"W\"|   \"Winston-Salem\"|      NC|\n|   49|     52|     48|  \"N\"|     97|      9|      0|  \"W\"|        \"Winnipeg\"|      MB|\n|   39|     11|     23|  \"N\"|     78|      9|     36|  \"W\"|      \"Winchester\"|      VA|\n|   34|     14|     24|  \"N\"|     77|     55|     11|  \"W\"|      \"Wilmington\"|      NC|\n|   39|     45|      0|  \"N\"|     75|     33|      0|  \"W\"|      \"Wilmington\"|      DE|\n|   48|      9|      0|  \"N\"|    103|     37|     12|  \"W\"|       \"Williston\"|      ND|\n|   41|     15|      0|  \"N\"|     77|      0|      0|  \"W\"|    \"Williamsport\"|      PA|\n|   37|     40|     48|  \"N\"|     82|     16|     47|  \"W\"|      \"Williamson\"|      WV|\n|   33|     54|      0|  \"N\"|     98|     29|     23|  \"W\"|   \"Wichita Falls\"|      TX|\n|   37|     41|     23|  \"N\"|     97|     20|     23|  \"W\"|         \"Wichita\"|      KS|\n|   40|      4|     11|  \"N\"|     80|     43|     12|  \"W\"|        \"Wheeling\"|      WV|\n|   26|     43|     11|  \"N\"|     80|      3|      0|  \"W\"| \"West Palm Beach\"|      FL|\n|   47|     25|     11|  \"N\"|    120|     19|     11|  \"W\"|       \"Wenatchee\"|      WA|\n|   41|     25|     11|  \"N\"|    122|     23|     23|  \"W\"|            \"Weed\"|      CA|\n|   31|     13|     11|  \"N\"|     82|     20|     59|  \"W\"|        \"Waycross\"|      GA|\n+-----+-------+-------+-----+-------+-------+-------+-----+------------------+--------+\nonly showing top 20 rows\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1602156365959_-1202387800",
+      "id": "paragraph_1602156365959_-1202387800",
+      "dateCreated": "2020-10-08T11:26:05+0000",
+      "dateStarted": "2020-10-08T11:26:14+0000",
+      "dateFinished": "2020-10-08T11:26:15+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:482"
+    },
+    {
+      "text": "%sh\nls",
+      "user": "anonymous",
+      "dateUpdated": "2020-10-08T11:26:27+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/sh"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "derby.log\nlocal-repo\nnotebook\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1602156378427_-1890381257",
+      "id": "paragraph_1602156378427_-1890381257",
+      "dateCreated": "2020-10-08T11:26:18+0000",
+      "dateStarted": "2020-10-08T11:26:27+0000",
+      "dateFinished": "2020-10-08T11:26:27+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:483"
+    },
+    {
+      "text": "%sh\nhdfs dfs -ls /",
+      "user": "anonymous",
+      "dateUpdated": "2020-10-08T11:30:20+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/sh"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Found 3 items\ndrwxrwxrwt   - hdfs hadoop          0 2020-10-04 11:53 /tmp\ndrwxr-xr-x   - hdfs hadoop          0 2020-10-03 10:14 /user\ndrwxr-xr-x   - hdfs hadoop          0 2020-10-03 10:14 /var\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1602156395725_1249722959",
+      "id": "paragraph_1602156395725_1249722959",
+      "dateCreated": "2020-10-08T11:26:35+0000",
+      "dateStarted": "2020-10-08T11:30:20+0000",
+      "dateFinished": "2020-10-08T11:30:22+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:484"
+    },
+    {
+      "text": "%sh \npyspark --version",
+      "user": "anonymous",
+      "dateUpdated": "2020-10-08T11:07:06+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/sh"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Welcome to\n      ____              __\n     / __/__  ___ _____/ /__\n    _\\ \\/ _ \\/ _ `/ __/  '_/\n   /___/ .__/\\_,_/_/ /_/\\_\\   version 3.0.0-amzn-0\n      /_/\n                        \nUsing Scala version 2.12.10, OpenJDK 64-Bit Server VM, 1.8.0_252\nBranch HEAD\nCompiled by user ec2-user on 2020-07-30T08:28:12Z\nRevision 520b97ed429ab8eb7a8d30068b0f34a8036c51a7\nUrl git@aws157git.com:/pkg/Aws157BigTop\nType --help for more information.\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1602152737662_-757246081",
+      "id": "paragraph_1602152737662_-757246081",
+      "dateCreated": "2020-10-08T10:25:37+0000",
+      "dateStarted": "2020-10-08T11:07:06+0000",
+      "dateFinished": "2020-10-08T11:07:08+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:485"
+    },
+    {
+      "text": "%spark.pyspark\nprint(\"hello world\")",
+      "user": "anonymous",
+      "dateUpdated": "2020-10-08T11:14:41+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "hello world\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1602153316252_-440313075",
+      "id": "paragraph_1602153316252_-440313075",
+      "dateCreated": "2020-10-08T10:35:16+0000",
+      "dateStarted": "2020-10-08T11:14:41+0000",
+      "dateFinished": "2020-10-08T11:15:06+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:486"
+    },
+    {
+      "text": "%pyspark\n",
+      "user": "anonymous",
+      "dateUpdated": "2020-10-08T10:35:27+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1602153327458_-215346405",
+      "id": "paragraph_1602153327458_-215346405",
+      "dateCreated": "2020-10-08T10:35:27+0000",
+      "status": "READY",
+      "$$hashKey": "object:487"
+    }
+  ],
+  "name": "hello-spark",
+  "id": "2FNP647WX",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.9.0-preview1",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false,
+    "looknfeel": "default",
+    "personalizedMode": "false"
+  },
+  "info": {},
+  "path": "/hello-spark"
+}
