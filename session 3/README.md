@@ -1,1 +1,1 @@
-#### Welcome to GAMMA C Spark Training for Data Scientists Day 3
+#### Welcome to Spark Training for Data Scientists Day 3
