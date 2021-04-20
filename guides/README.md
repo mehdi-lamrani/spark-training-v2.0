@@ -1,4 +1,4 @@
-# Spark Workshop for Gamma C
+# Spark Workshop
 # Getting acquainted to your working environment
   This is your goto reference page when you want to get a refresher about your technical resources
 
@@ -6,20 +6,12 @@
 
 - **Your personal IP Address should be whitelisted by the trainer.** 
 
-    * You need to retrieve your public IP address and fill it in [This Document](https://docs.google.com/spreadsheets/d/1yMYJU8CJLfmlvu8X3E68mkjWfsS7Vxnacc-aYZDDzOA/edit)
-    * PLEASE be careful to fill in the right tab according to your region (US/ASIA/EU)
+    * You need to retrieve your public IP address and fill it in [This Document]()
 
 - **An EMR cluster will be assigned to you :**
 
-    * Note : The Training coordinators might assign this during the training
-    * Both Your name and your partner's name should be in one cell (two persons per cluster)
-    * Persons in the same breakout room should be assigned the same cluster
-    * EMR Clusters are assigned to you by Region. chose the right region for you (depending on the session)
+    * Note : The Training coordinator will assign this during the training
 
-    * [CLUSTER IPs EUR](https://docs.google.com/document/d/18oj3lGTeuPB8KX5p03JrYzS2SCUpBDkIvPml2IEaSsI/edit?usp=sharing)
-    * [CLUSTER IPs ASIA](https://docs.google.com/document/d/1oDjpn9_YdofgiP-zxaygMq7_w5Iyl0FtoZ965foW3DI/edit?usp=sharing) 
-    * [CLUSTER IPs US](https://docs.google.com/document/d/18oj3lGTeuPB8KX5p03JrYzS2SCUpBDkIvPml2IEaSsI/edit?usp=sharing)
-    
 ### EMR Links to UI's & Resources
 
 - Make **SURE** you are not behind a strict firewall and that all the following ports are open<br>
@@ -58,7 +50,7 @@ Strange hack, but it works.
 
 ### Test your SSH Connection : 
 
-- After that, Please proceed to [ssh testing](https://github.com/mehdi-lamrani/spark-training-v2.0/blob/master/day%201/part%201/shell/exercices/00-terminal.md)
+- After that, Please proceed to [ssh testing](https://github.com/mehdi-lamrani/spark-training-v2.0/blob/master/session%201/part%201/shell/exercices/00-terminal.md)
 
 ### Using Jupyter / Zeppelin  (Notebook Exercices)
 
