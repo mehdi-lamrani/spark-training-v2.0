@@ -4,7 +4,7 @@ The Spark consoles are two command line interfaces that are provided natively by
 One is provided in scala (native spark)-spark-shell, the other is provided in Python (out-of-the-box) -pyspark. 
 Although they may not be convenient for day to day in depth work, they do provide a robust interface for testing and exucuting spark commands in REPL mode.  
 
-We will stick to the python shell for this training, ignoring scala shell for now.
+We will stick to the python shell for this training, ignoring scala shell for now.<br>
 *PS : There are many considerations as to when it is more convenient to use one language API over the other.*  
 *If you are interested in this topic, feel free to ask the trainer, he'll be gland to provide you with some insights*
 
