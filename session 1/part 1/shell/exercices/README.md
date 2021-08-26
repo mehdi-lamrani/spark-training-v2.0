@@ -24,8 +24,8 @@ A thorough explanation on how to properly tune your ressources to avoid that wil
 
 #### PART TWO : Loading Data into HDFS
 
-- [Loading Data](https://github.com/mehdi-lamrani/spark-training-v2.0/blob/master/day%201/part%201/shell/exercices/01.load-data.md)
+- [Loading Data](https://github.com/mehdi-lamrani/spark-training-v2.0/blob/main/session%201/part%201/shell/exercices/01.load-data.md)
 
 #### PART THREE : First steps with pyspark shell
 
-- [Hello Pyspark Shell](https://github.com/mehdi-lamrani/spark-training-v2.0/blob/master/day%201/part%201/shell/exercices/02-pyspark-shell.md)
+- [Hello Pyspark Shell](https://github.com/mehdi-lamrani/spark-training-v2.0/blob/main/session%201/part%201/shell/exercices/02-pyspark-shell.md)
