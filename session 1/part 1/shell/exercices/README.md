@@ -20,7 +20,7 @@ A thorough explanation on how to properly tune your ressources to avoid that wil
 
 #### PART ONE : Connecting to Terminal
 
-- [Connecting to Terminal](https://github.com/mehdi-lamrani/spark-training-v2.0/blob/master/day%201/part%201/shell/exercices/00-terminal.md)
+- [Connecting to Terminal](https://github.com/mehdi-lamrani/spark-training-v2.0/blob/main/session%201/part%201/shell/exercices/00-terminal.md)
 
 #### PART TWO : Loading Data into HDFS
 
