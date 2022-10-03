@@ -10,7 +10,7 @@ We will stick to the python shell for this training, ignoring scala shell for no
 
 ### Caution !!!
 As will be explained later, do NOT launch more than ONE shell per user.<br> 
-Always quit your sessions properly (:q in scalla or exit() in pyspark).<br>   
+Always quit your sessions properly (:q in scalla or exit() in pyspark).   
 Being careless regarding this warning might result in freezing your shells,  
 and requiring to restart services and killing ghost jobs. 
 While this is not a big deal, it might cause some inconvenience.
