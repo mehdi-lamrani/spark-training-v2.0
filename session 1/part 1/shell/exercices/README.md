@@ -1,7 +1,7 @@
 ## SPARK SHELL introduction
 
 The Spark consoles are two command line interfaces that are provided natively by Spark Core  
-One is provided in scala (native spark)-spark-shell, the other is provided in Python (out-of-the-box) -pyspark. 
+One is provided in scala (native spark)-spark-shell, the other is provided in Python (out-of-the-box) -pyspark.<br> 
 Although they may not be convenient for day to day in depth work, they do provide a robust interface for testing and exucuting spark commands in REPL mode.  
 
 We will stick to the python shell for this training, ignoring scala shell for now.<br>
