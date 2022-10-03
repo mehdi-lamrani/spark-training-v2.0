@@ -19,7 +19,7 @@ A thorough explanation on how to properly tune your ressources to avoid that wil
 
 
 #### PART ONE : Connecting to Terminal
-(_Skip if already connected via SSH to cluster)
+(_Skip if already connected via SSH to cluster_)
 
 - [Connecting to Terminal](https://github.com/mehdi-lamrani/spark-training-v2.0/blob/main/session%201/part%201/shell/exercices/00-terminal.md)
 
