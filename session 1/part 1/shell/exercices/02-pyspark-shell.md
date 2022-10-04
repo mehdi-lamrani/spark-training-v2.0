@@ -76,9 +76,9 @@ rdd4.collect()
 - Now let's create a dataframe from a CSV file and display its content 
 - File should be downloaded and uploaded on HDFS 
 
-Useful Ressources : 
-- [DATARFAME API REF](https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/dataframe.html)
-- [PYSPARK EXAMPLE](https://sparkbyexamples.com/pyspark-tutorial/)
+**Useful Ressources : **
+- [SPARK DATARFAME API REFERENCE](https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/dataframe.html)
+- [PYSPARK BY EXAMPLE](https://sparkbyexamples.com/pyspark-tutorial/)
 
 - Replace `putyourfirstnamehere` by the personal folder you created while uploading the data to HDFS
 
@@ -95,6 +95,24 @@ df.count()
   * What did you notice ?
   * Which instructon took most time ?
   * Why in you opinion ?
+  
+- Let's play with the Dataframe :
+- 
+````
+df.filter(df.city == "New York").show(df.count(), False)
+````
+
+````
+df.filter(df.state == "MA").count()
+````
+
+````
+df.groupBy("state").count().show()
+````
+
+````
+df.groupBy("state","city").count().show()
+````
 
 - Gracefully shut down your spark-shell : type exit() + enter
 
