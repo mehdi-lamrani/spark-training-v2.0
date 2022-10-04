@@ -76,6 +76,10 @@ rdd4.collect()
 - Now let's create a dataframe from a CSV file and display its content 
 - File should be downloaded and uploaded on HDFS 
 
+Useful Ressources : 
+- [DATARFAME API REF](https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/dataframe.html)
+- [PYSPARK EXAMPLE](https://sparkbyexamples.com/pyspark-tutorial/)
+
 - Replace `putyourfirstnamehere` by the personal folder you created while uploading the data to HDFS
 
 ````
