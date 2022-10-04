@@ -111,7 +111,11 @@ df.groupBy("state").count().show()
 ````
 
 ````
-df.groupBy("state","city").count().show()
+df.groupBy("state","city").count().orderBy("state", "city").where().show(100)
+````
+
+````
+df.groupBy("state","city").count().alias("zipcount").orderBy("state", "city").where("count > 50").orderBy("count").show(10)
 ````
 
 - Gracefully shut down your spark-shell : type exit() + enter
