@@ -21,8 +21,8 @@
 
 - In the first terminal launch 2 signal simulator commands :  
  ````
-  python SendSignalTCP.py -p 9998 -s 10&
-  python SendSignalTCP.py -p 9999 -s 10&
+  python SendSignalTCP.py -p your_chosen_port_1_here -s 10&
+  python SendSignalTCP.py -p your_chosen_port_2_here -s 10&
   ````
   
 - in another terminal
@@ -33,7 +33,10 @@
   
   OR
   
- - run : spark-submit
+ - run : `spark-submit spark-tcp.py`
+   YOU NEED TO EDIT THE PY FILE TO INSERT YOU CHOSEN PORTS FIRST
    
+- Check that the output of the streams is written in the hdfs folders for each stream
+
 - Explore the Spark Stream Web UI if you have the chance to do so.  
   
