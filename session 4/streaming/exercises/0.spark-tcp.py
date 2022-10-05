@@ -1,5 +1,7 @@
 from pyspark.sql.functions import col, date_trunc
+from pyspark.sql import SparkSession
 
+spark = SparkSession.builder.appName("stream").getOrCreate()
 # define streams receiving signals from the SendSignalTCP programs
 
 df_stream1 = spark.readStream.format("socket").option("host", "127.0.0.1").option("port", REPLACE_BY_PORT_NUMBER_1).option("includeTimestamp","true").load()
