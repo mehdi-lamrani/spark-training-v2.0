@@ -23,7 +23,7 @@ df_stream3 = df_stream1.join(df_stream2,df_stream1.timestamp ==  df_stream2.time
 #   - checkpoint locations should as well be created upfront, and cleaned up before every relaunch of the streams
 #   - if checkpoint folders are not cleaned up, the streams will try to pick up where they left and you will have an error message
 
-query3 = df_stream3.writeStream.format("csv").option("path", "/user/root/data/signal_c").option("checkpointLocation", "/user/root/data/check3").start()
+query3 = df_stream3.writeStream.format("csv").option("path", "/user/root/data/signal_3").option("checkpointLocation", "/user/root/data/check3").start()
 query2 = df_stream2.writeStream.format("csv").option("path", "/user/root/data/signal_2").option("checkpointLocation", "/user/root/data/check2").start()
 query1 = df_stream1.writeStream.format("csv").option("path", "/user/root/data/signal_1").option("checkpointLocation", "/user/root/data/check1").start()
 
