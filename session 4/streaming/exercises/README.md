@@ -20,7 +20,11 @@
 - Split your terminal 
 
 - In the first terminal launch 2 signal simulator commands :  
-
+ ````
+  python SendSignalTCP.py -p 9998 -s 10&
+  python SendSignalTCP.py -p 9999 -s 10&
+  ````
+  
 - in another terminal
 
 - run a Spark Shell and execute the provided spark excerpts  
