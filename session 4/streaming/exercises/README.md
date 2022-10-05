@@ -30,6 +30,9 @@
 - run a Spark Shell and execute the provided spark excerpts  
   to manipulate streams to produce the desired result  
   (port numbers should be changed according to what you feed the TCP script)
+  
+  YOU NEED TO REPLACE THE PORTS WITH YOUR CHOSEN PORTS FIRST
+
   ````
   pyspark --conf spark.ui.showConsoleProgress=false
   ````
@@ -40,8 +43,9 @@
   OR
   
  - run : `spark-submit spark-tcp.py`<br>
-   YOU NEED TO EDIT THE PY FILE TO INSERT YOU CHOSEN PORTS FIRST
    
+   YOU NEED TO EDIT THE PY FILE TO INSERT YOU CHOSEN PORTS FIRST
+
 - Check that the output of the streams is written in the corresponding hdfs folders for each stream
 
 - Explore the Spark Stream Web UI if you have the chance to do so.  
