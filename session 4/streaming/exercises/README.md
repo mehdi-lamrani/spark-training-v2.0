@@ -17,11 +17,19 @@
   along with the value (when you have time, maybe later).<br>
   This would illustrate the event time vs processing time paradigm.
 
-- Split your terminal, and launch 2 instances 
+- Split your terminal 
 
-- in another terminal, run a Spark Shell and execute the provided spark excerpts  
+- In the first terminal launch 2 signal simulator commands :  
+
+- in another terminal
+
+- run a Spark Shell and execute the provided spark excerpts  
   to manipulate streams to produce the desired result  
   (port numbers should be changed according to what you feed the TCP script)
+  
+  OR
+  
+ - run : spark-submit
    
 - Explore the Spark Stream Web UI if you have the chance to do so.  
   
