@@ -30,6 +30,12 @@
 - run a Spark Shell and execute the provided spark excerpts  
   to manipulate streams to produce the desired result  
   (port numbers should be changed according to what you feed the TCP script)
+  ````
+  pyspark --conf spark.ui.showConsoleProgress=false
+  ````
+  
+  Setting the `showConsoleProgress` option to false frees the shell so we can get back the hand while streaming in the background. 
+  (Otherwise it keeps pumping and doe not return the shell to the user)
   
   OR
   
