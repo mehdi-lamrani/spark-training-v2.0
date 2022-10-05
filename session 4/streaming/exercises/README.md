@@ -14,14 +14,14 @@
 - Start with a frequency of 1 sec, and slide it up as you validate the complete stream chain 
 
 - Advanced : to spice up the exercice, you could modify the script to send event time as well  
-  along with the value (when you have time, maybe later). 
+  along with the value (when you have time, maybe later).<br>
   This would illustrate the event time vs processing time paradigm.
 
 - Split your terminal, and launch 2 instances 
 
 - in another terminal, run a Spark Shell and execute the provided spark excerpts  
   to manipulate streams to produce the desired result  
-  (port numbers should be changer according to what you feed the TCP script)
+  (port numbers should be changed according to what you feed the TCP script)
    
 - Explore the Spark Stream Web UI if you have the chance to do so.  
   
