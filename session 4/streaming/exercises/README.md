@@ -33,10 +33,10 @@
   
   OR
   
- - run : `spark-submit spark-tcp.py`
+ - run : `spark-submit spark-tcp.py`<br>
    YOU NEED TO EDIT THE PY FILE TO INSERT YOU CHOSEN PORTS FIRST
    
-- Check that the output of the streams is written in the hdfs folders for each stream
+- Check that the output of the streams is written in the corresponding hdfs folders for each stream
 
 - Explore the Spark Stream Web UI if you have the chance to do so.  
   
