@@ -64,5 +64,5 @@ dfc = df.groupBy(window(df.timestamp, "10 second")).avg()
 # OPTION 3 : SLIDING WINDOW
 dfc = df.groupBy(window(df.timestamp, "10 second", "1 second")).avg()
 
-query4 = dfc.writeStream.format("console").option("checkpointLocation", "/user/root/data/check4").outputMode("Complete").start()
+query4 = dfc.writeStream.format("console").option("truncate", "False").option("checkpointLocation", "/user/root/data/check4").outputMode("Complete").start()
 query4.stop()
