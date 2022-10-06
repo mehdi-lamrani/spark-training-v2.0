@@ -51,7 +51,7 @@ query1 = df_stream1.writeStream.format("csv").option("path", "/user/root/data/si
 
 # STREAMING AGGREGATIONS :
 
-df = spark.readStream.format("socket").option("host", "127.0.0.1").option("port", 9991).option("includeTimestamp","true").load()
+df = spark.readStream.format("socket").option("host", "127.0.0.1").option("port", REPLACE_BY_PORT_NUMBER_1).option("includeTimestamp","true").load()
 
 from pyspark.sql.functions import window
 
