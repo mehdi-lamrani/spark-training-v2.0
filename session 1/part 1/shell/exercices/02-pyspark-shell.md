@@ -6,6 +6,19 @@
   * Uploaded it to hdfs<br>
   * you are logged in as root (sudo)<br>
 
+## Tech Notes for the Instructor : 
+
+### Run spark on gitpod/docker :
+
+```
+wget https://raw.githubusercontent.com/vega/vega-datasets/master/data/zipcodes.csv
+docker pull apache/spark
+docker run -it -v /workspace/gitpod:/workspace/gitpod apache/spark /opt/spark/bin/pyspark
+df = spark.read.option("header", True).format("csv").load("hdfs:///user/root/putyourfirstnamehere/data/zipcodes.csv")
+df.show()
+
+```
+
 ## Let's launch a pysark console
 
 
